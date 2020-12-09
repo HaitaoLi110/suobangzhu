@@ -1,0 +1,79 @@
+<form catchsubmit="formSubmit" >
+	<view class="content">
+		<view class="line">
+			<view class="label">头像：</view>
+			<view class="oper">
+				<image class="coveImg" src="{{img}}"></image>
+			</view>
+		</view>
+		<view class="line">
+			<view class="label">姓名：</view>
+			<view class="oper">
+				<input type="text" class="" name="name" value="{{name}}" />
+			</view>
+		</view>
+		<view class="line">
+			<view class="label">地区：</view>
+			<view class="oper">
+				<input type="text" class="" name="diqu" value="{{diqu}}" />
+			</view>
+		</view>
+		<view class="line">
+			<view class="label">手机号：</view>
+			<view class="oper">
+				<input type="number" class="" name="user_tel" value="{{user_tel}}" />
+			</view>
+		</view>
+		<view class="line">
+			<view class="label">主营：</view>
+			<view class="oper">
+				<input type="text" class=""  name="zhuying" value="{{zhuying}}"/>
+			</view>
+		</view>
+		<view class="line">
+			<view class="label">公司名称：</view>
+			<view class="oper">
+				<input type="text" class="" name="company"  value="{{company}}"/>
+			</view>
+		</view>
+		<view class="line">
+			<view class="label">公司介绍：</view>
+			<view class="oper">
+				<input type="text" class="" name="introduce" value="{{introduce}}" />
+			</view>
+		</view>
+		<view class="line2">
+			<view class="label">公司图片：</view>
+			<view class="">
+				<input value="{{upload_img}}" style="display: none;" name='companyimg' />
+				<view class="carousel_img1 rel" wx:if="{{upload_img.length>0}}" wx:for="{{upload_img}}">
+				    <view bindtap="delete2" class="delete ab" data-index="{{index}}">
+				        <image class="ab" mode="aspectFill" src="../image/delete.png"></image>
+				    </view>
+				    <image class="ab udlr" data-index="{{index}}" mode="aspectFill" src="{{item}}"></image>
+				</view>
+				<view bindtap="upload_image" class="carousel_img2 rel" style="border:2rpx solid #ccc;" >
+				    <image class="ab udlr" src="../image/add.png"></image>
+				</view>
+			</view>
+		</view>
+		<view class="line2">
+			<view class="label">产品图片：</view>
+			<view class="c2">
+				<input value="{{images}}" style="display: none;" name='chanpinimg' />
+				<view class="carousel_img1 rel" wx:if="{{images.length>0}}" wx:for="{{images}}">
+				    <view bindtap="delete" class="delete ab" data-index="{{index}}">
+				        <image class="ab" mode="aspectFill" src="../image/delete.png"></image>
+				    </view>
+				    <image class="ab udlr" data-index="{{index}}" mode="aspectFill" src="{{item}}"></image>
+				</view>
+				<view bindtap="chooseImage2" class="carousel_img2 rel" style="border:2rpx solid #ccc;" >
+				    <image class="ab udlr" src="../image/add.png"></image>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="btn-area">
+	        <button style="margin: 30rpx 0" type="primary" formType="submit">完成</button>
+	      </view>
+</form>

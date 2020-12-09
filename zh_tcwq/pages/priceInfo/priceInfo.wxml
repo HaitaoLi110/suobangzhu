@@ -1,0 +1,38 @@
+<view class="big_border pbnavbar">
+	<view class="searchbox">
+	    <input bindinput="bindinput" class="input" placeholder="请输入您要查询的关键词" ></input>
+	    <button bindtap="search" class="search" style="background:{{System.color}}">搜索</button>
+	    <view class="ssjg" wx:if="{{djss}}">
+	        <scroll-view scrollY="true" style="height:450rpx;">
+	            <view bindtap="store" data-id="{{item.id}}" wx:if="{{ssjgarr.length>0}}" wx:for="{{ssjgarr}}">{{item.store_name}}</view>
+	            <view wx:if="{{ssjgarr.length==0}}">暂无符合你搜索的厂家~</view>
+	        </scroll-view>
+	        <button bindtap="sqss" style="background:{{System.color}}">收起</button>
+	    </view>
+	</view>
+	<view class="tab-nav">
+	    <block wx:for="{{tabNav}}" wx:key="*this">
+	      <text bindtap="onTabNav" data-index="{{index}}" class="{{currentIndex==index?'active':''}}">{{item}}</text>
+	    </block>
+	  </view>
+	
+	  <view class="tab-list">
+	    <view class="list" wx:if="{{currentIndex==0}}">
+			
+			<view class='listCont'>
+				<view class='liCon' wx:for='{{list}}' wx:key='item'>
+					<navigator  openType="navigate" url="{{item.url}}" >
+					   
+					<view class='li_title'>{{item.des}}</view>
+					<view class='li_time'>{{item.time}}</view>
+					</navigator>
+				</view>
+			</view>
+		</view>
+	    <view class="list" wx:if="{{currentIndex==1}}">222</view>
+	    <view class="list" wx:if="{{currentIndex==2}}">333</view>
+	  </view>
+	  
+	
+	
+</view>

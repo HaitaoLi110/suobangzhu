@@ -1,0 +1,31 @@
+.content{
+	display: flex;
+	  flex-wrap: wrap;
+	  justify-content: space-between;
+}
+.info{
+	 flex: 1;
+	width: 50%;
+	border-radius: 5rpx;
+	box-shadow:1 1 1 #aaa ;
+	padding: 10rpx;
+	font-size: 26rpx;
+}
+.h3{
+	font-size: 30rpx;
+}
+.infoImg{
+	border-radius: 50%;
+	float: right;
+	width: 50rpx;
+	height: 50rpx;
+}
+.address{
+	text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}

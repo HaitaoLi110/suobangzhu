@@ -1,0 +1,11 @@
+<view wx:for="{{list}}" wx:key="{{item}}" class="ulCon" bindtap='toggleCass'>
+	<view class="h3">
+		{{item.type_name}}
+	</view>
+	<view class="cont">
+		{{item.content}}
+	</view>
+	<view class="time">
+		{{item.addtime}} 发布
+	</view>
+</view>

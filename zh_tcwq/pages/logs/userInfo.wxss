@@ -1,0 +1,71 @@
+/* zh_tcwq/pages/logs/user_info.wxss */
+.content{
+	background-color: #fff;
+	
+}
+.line{
+	display: flex;
+	border-bottom: #eaeaea solid 1px;
+	line-height: 40rpx;
+	
+}
+
+.label{
+	width: 200rpx;
+	flex-shrink: 0;
+	padding-right: 10rpx;
+	text-align: right;
+	padding: 30rpx 0;
+}
+.oper{
+	float: left;
+	flex-grow: 1;
+	padding: 10rpx 0;
+}
+.oper input,.picker{
+	padding: 20rpx 0;
+}
+.oper .coveImg{
+	width: 100rpx;
+	height: 100rpx;
+	border-radius: 50%;
+}
+.udlr{
+	width: 150rpx;
+	height: 150rpx;
+	 top: 0;
+	    bottom: 0;
+	    left: 0;
+	    right: 0;
+	    margin: auto;
+}
+.delete {
+    width: 100%;
+    height: 50rpx;
+    top: 0;
+    z-index: 500;
+}
+
+.delete image {
+    width: 50rpx;
+    height: 50rpx;
+    right: 0;
+}
+.carousel_img1 {
+    width: 21%;
+    height: 160rpx;
+    overflow: hidden;
+    margin-left: 4%;
+	display: inline-block;
+}
+.carousel_img1>image {
+    width: 100%;
+    height: 100%;
+}
+.carousel_img2 {
+    width: 21%;
+    height: 160rpx;
+    margin-left: 4%;
+    border: 1rpx solid #666;
+	display: inline-block;
+}

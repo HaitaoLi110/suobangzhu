@@ -1,0 +1,91 @@
+<include src="/zh_tcwq/pages/car/navbar.wxml"></include>
+<view class="header" style="background:{{System.color}}">
+    <!-- <navigator class="header_set" url="../qd/qd" wx:if="{{qdset[0].is_open=='1'}}"> -->
+    <navigator class="header_set" url="userInfo" wx:if="{{qdset[0].is_open=='1'}}">
+        <image src="../image/set_icon.png"></image>
+    </navigator>
+    <image class="header_back" src="../image/mybgimg.png"></image>
+    <view class="header_box">
+        <view class="mrtxc" wx:if="{{hydl}}">
+            <image class="mrtxl" src="../image/mtx.png"></image>
+            <view class="mrtxr">
+                <view class="wxyh">微信用户</view>
+                <button bindgetuserinfo="bindGetUserInfo" class="djsq" openType="getUserInfo" style="background:{{color}}" wx:if="{{hydl}}">点击授权</button>
+            </view>
+        </view>
+        <view class="flex-center" wx:else>
+            <image class="picture" src="{{avatarUrl}}"></image>
+            <view class="header_name">
+                <view>{{nickName}}</view>
+                <view bindtap="tchhr" class="head_hhr flex-center" wx:if="{{System.is_hhr==1&&System.is_hhrqx==1&&UserInfo}}">
+                    <image class="head_hhr1" mode="aspectFit" src="../image/myhz.png"></image>
+                    <view class="head_hhr2" wx:if="{{MyDistribution.state=='2'}}">{{MyDistribution.name}}</view>
+                    <view class="head_hhr2" wx:else>加盟合伙人</view>
+                    <image class="head_hhr3" mode="aspectFit" src="../image/baise.png"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="list">
+    <view class="list_content">
+        <view class="list_fukuan flex-bet">
+            <view bindtap="wallet" class="flex3 list_collet">
+                <view class="mytext" style="color:{{System.color}}">{{UserInfo.money}}</view>
+                <view>钱包</view>
+            </view>
+            <navigator bindtap="payment_one" class="flex3 list_collet" url="../integral/myintegral" >
+                <view class="mytext" style="color:{{System.color}}">{{UserInfo.total_score}}</view>
+                <view>我的消息</view>
+            </navigator>
+            <view bindtap="collection" class="flex3 list_collet">
+                <view class="mytext" style="color:{{System.color}}">{{MyCollection.length}}</view>
+                <view>收藏</view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="banner" wx:if="{{UserInfo}}">
+    <view class="bhead">
+        <image src="../image/Already.png"></image>
+        <view>我的服务</view>
+    </view>
+    <view class="bbd">
+        <view bindtap="my_post" class="banner_list">
+            <image class="list_allimg" src="../image/card.png"></image>
+            <view class="list_alltext">我的供求</view>
+        </view>
+    
+        <view bindtap="jfsc" class="banner_list" >
+            <image class="list_allimg" src="../image/welfare.png"></image>
+            <view class="list_alltext">我的报价</view>
+        </view>
+   
+        <view bindtap="myInfo" class="banner_list">
+            <image class="list_allimg" src="../image/ding.png"></image>
+            <view class="list_alltext">我的名片</view>
+        </view>
+    </view>
+</view>
+<view class="banner">
+    <view class="bhead">
+        <image src="../image/Already.png"></image>
+        <view>厂家服务</view>
+    </view>
+    <view class="bbd">
+      
+        <view bindtap="help" class="banner_list">
+            <image class="list_allimg" src="../image/help.png"></image>
+            <view class="list_alltext">问题反馈</view>
+        </view>
+        <view bindtap="about" class="banner_list">
+            <image class="list_allimg" src="../image/about.png"></image>
+            <view class="list_alltext">免责申明</view>
+        </view>
+    </view>
+</view>
+
+<view bindtap="jump" class="footer">
+    <image src="{{url}}{{bq_logo}}"></image>
+    <text>{{System.bq_name}}</text>
+</view>

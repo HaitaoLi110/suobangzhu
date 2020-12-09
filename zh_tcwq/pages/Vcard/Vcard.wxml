@@ -1,0 +1,13 @@
+<view class="contflx">
+	
+	<view class="li" wx:for="{{zx}}" wx:key='{{item}}' bindtap='vcardInfo' data-id="{{item.id}}">
+		<view class="licont">
+			<image src="{{item.u_img}}" class="avarg"></image>
+		<view class="h3_title">{{item.u_name}}</view>
+		<view class="p_text">{{item.u_tel}}</view>
+		<view class="p_text">{{item.company}}</view>
+		<view class="p_text">{{item.zhuying}}</view>
+		</view>
+		
+	</view>
+</view>
