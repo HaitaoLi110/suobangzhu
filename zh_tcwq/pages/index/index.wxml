@@ -53,11 +53,10 @@
 				</view>
 			</view>
 		</view>
-		<swiper autoplay="true" circular="true" class="classify" duration="1000" interval="4000" style="height:{{height}}rpx"
-		 wx:if="{{nav.length>0}}">
-			<swiper-item wx:for="{{nav}}" wx:key="{{item.value}}">
+		<view autoplay="true" circular="true" class="classify"  wx:if="{{nav.length>0}}">
+			<block wx:for="{{nav}}" wx:key="{{item.value}}">
 				<block wx:for="{{item}}" wx:key="{{item.value}}">
-					<view bindtap="jumps" data-appid="{{item.appid}}" data-id="{{item.id}}" data-name="{{item.xcx_name}}" data-sjtype="1"
+					<view bindtap="jumps" class="view-item" data-appid="{{item.appid}}" data-id="{{item.id}}" data-name="{{item.xcx_name}}" data-sjtype="1"
 					 data-src="{{item.src}}" data-type="{{item.state}}" data-wb_src="{{item.wb_src}}" wx:if="{{item.state!='3'}}">
 						<view class="classify_logo rel">
 							<image class="ab udlr" mode="aspectFill" src="{{url}}{{item.logo}}" style="border-radius:10rpx;"></image>
@@ -72,8 +71,8 @@
 						<view class="classify_name center gobyndsingle">{{item.title}}</view>
 					</navigator>
 				</block>
-			</swiper-item>
-		</swiper>
+			</block>
+		</view>
 		<view class="ad">
 			<view class="tctt" style="color:{{System.color}}">{{System.sygg_name}}</view>
 			<swiper autoplay="true" circular="true" class="newest_content gobyndsingle" interval="2000" vertical="true">
@@ -109,12 +108,41 @@
 			</view>
 		</view>
 		<ad unitId="{{item.src}}" wx:for="{{unitid}}"></ad>
+		<view class="fon  gobyndsingle gobyndsingle_h3" data-index="{{1}}"
+		 data-name="{{bkarr[1].type}}" id="a{{1}}" bindtap="moreZXBJ">{{bkarr[1].name}}</view>
+		
+		<view class="yelist message_list" >
+			<view>
+				<view bindtap="messageBJ" class="message_listview" data-id="{{item.id}}" wx:if="{{store1.length!=0}}" wx:for="{{store1}}"
+				 wx:key="*this">
+					<block wx:if="{{item.imgs.length>1||item.imgs==''}}">
+						<view class="title">{{item.title}}</view>
+						<view class="message_image" wx:if="{{item.imgs!=''}}">
+							<image mode="aspectFill" src="{{url}}{{item}}" wx:for="{{item.imgs}}" wx:key="*this"></image>
+						</view>
+					</block>
+					<view class="message_hd" wx:else>
+						<view class="title">{{item.title}}</view>
+						<image mode="aspectFill" src="{{url}}{{item}}" wx:for="{{item.imgs}}" wx:key="*this"></image>
+					</view>
+					
+				</view>
+			</view>
+			
+			<view class="none_store" wx:if="{{zxlist.length==0}}">
+				<view class="rel">
+					<image class="ab udlr img2" mode="aspectFill" src="../image/tie2.png"></image>
+				</view>
+				<view class="center">暂无资讯信息</view>
+			</view>
+		</view>
+		
 		<view class="market" wx:if="{{System.is_pzsj=='1'}}">
 			<view bindtap="more" class="markettitle">
 				<view class="fl rel">
 					<image class="ab ud" mode="widthFix" src="../image/ding.png" style="width:40rpx;height:28rpx"></image>
 				</view>
-				<view class="fl">品质厂家</view>
+				<view class="fl">优秀企业展示</view>
 				<text class="fr" style="color:#999">更多 ></text>
 			</view>
 		
@@ -137,7 +165,7 @@
 		</view>
 		
 			
-		<view  class="fon gobyndsingle gobyndsingle_h3" data-index="{{0}}"
+		<view  class="fon gobyndsingle gobyndsingle_h3" data-index="{{0}}" bindtap="moreZXGQ"
 		 data-name="{{bkarr[0].type}}" id="a{{0}}" >{{bkarr[0].name}}</view>
 		<view class="yelist" >
 			<view class="content" wx:if="{{seller.length!=0}}" wx:for="{{seller}}" wx:key="{{item.value}}">
@@ -181,7 +209,7 @@
 					</view>
 				</view>
 				<view bindtap="see" class="content_chakan" data-id="{{item.tz.id}}">
-					<view class="content_info time1">{{item.tz.time}}发布</view>
+					<view class="content_info time1">{{item.tz.time}}推广</view>
 					<view class="content_info" wx:if="{{item.tz.lat!=''}}">离你{{item.tz.juli}}</view>
 				</view>
 				<view bindtap="see" class="content_chakan" data-id="{{item.tz.id}}" wx:if="{{System.is_tzdz=='1'&&item.tz.address!=''}}">
@@ -212,181 +240,12 @@
 				<view class="rel">
 					<image class="ab udlr img2" mode="aspectFill" src="../image/tie2.png"></image>
 				</view>
-				<view class="center">该分类还没有发布的{{System.tzmc}}</view>
-			</view>
-		</view>
-		<view class="fon  gobyndsingle gobyndsingle_h3" data-index="{{1}}"
-		 data-name="{{bkarr[1].type}}" id="a{{1}}" >{{bkarr[1].name}}</view>
-		
-		<view class="yelist message_list" >
-			<view>
-				<view bindtap="messageBJ" class="message_listview" data-id="{{item.id}}" wx:if="{{store1.length!=0}}" wx:for="{{store1}}"
-				 wx:key="*this">
-					<block wx:if="{{item.imgs.length>1||item.imgs==''}}">
-						<view class="title">{{item.title}}</view>
-						<view class="message_image" wx:if="{{item.imgs!=''}}">
-							<image mode="aspectFill" src="{{url}}{{item}}" wx:for="{{item.imgs}}" wx:key="*this"></image>
-						</view>
-					</block>
-					<view class="message_hd" wx:else>
-						<view class="title">{{item.title}}</view>
-						<image mode="aspectFill" src="{{url}}{{item}}" wx:for="{{item.imgs}}" wx:key="*this"></image>
-					</view>
-					
-				</view>
-			</view>
-			
-			<view class="none_store" wx:if="{{zxlist.length==0}}">
-				<view class="rel">
-					<image class="ab udlr img2" mode="aspectFill" src="../image/tie2.png"></image>
-				</view>
-				<view class="center">暂无资讯信息</view>
+				<view class="center">该分类还没有推广的{{System.tzmc}}</view>
 			</view>
 		</view>
 		
-		<view class="yelist"  hidden>
-			<store-cell content="{{item}}"  url="{{url}}" wx:for="{{store1}}" wx:key="unique"></store-cell>
-			<navigator class="loading rel" openType="reLaunch" url="../store/store" wx:if="{{refresh_top==true&&store1.length!=0}}">
-				点击查看更多 >
-			</navigator>
-			<view class="loading rel" wx:if="{{refresh_top==false}}">
-				<image class="ab udlr" mode="widthFix" src="../image/loading.gif"></image>
-			</view>
-			<view class="none_store" wx:if="{{store1.length==0}}">
-				<view class="rel">
-					<image class="ab udlr img2" mode="aspectFill" src="../image/tie2.png"></image>
-				</view>
-				<view class="center">暂无厂家信息</view>
-			</view>
-		</view>
-		<view class="yelist" hidden="{{bkname!='3'}}">
-			<view bindtap="yellow_info" class="yellow_list" data-id="{{item.id}}" data-user_id="{{item.user_id}}" wx:for="{{yellow_list}}">
-				<view class="list_head">
-					<view>
-						<image class="yellow_logo" mode="aspectFill" src="{{url}}{{item.logo}}"></image>
-					</view>
-					<view class="list">
-						<view class="list_name">
-							<view class="rel gobyndsingle">
-								{{item.company_name}}{{item.vip}}
-							</view>
-							<view class="rel" wx:if="{{item.vip==true}}">
-								<image class="ab ud" mode="aspectFill" src="../image/vip.png"></image>
-							</view>
-						</view>
-						<view>
-							<image mode="aspectFill" src="../image/dianhuahong.png"></image>
-							<text>{{item.link_tel}}</text>
-						</view>
-						<view class="list_body">
-							<image src="../image/address3.png"></image>
-							<text class="gobyndsingle" style="width:380rpx;margin-left: 15rpx;">{{item.company_address}}</text>
-						</view>
-					</view>
-					<view class="tel_icon">
-						<view>
-							<image class="yellow_tel" mode="aspectFill" src="../image/phone1.gif"></image>
-						</view>
-						<text wx:if="{{item.distance!=NaN}}">{{item.distance}}km</text>
-						<text wx:if="{{item.distance==NaN}}">0.00km</text>
-					</view>
-				</view>
-			</view>
-			<navigator class="loading rel" openType="navigate" style="border-top:none" url="../yellow_page/yellow" wx:if="{{refresh_top==true&&yellow_list.length!=0}}">
-				点击查看更多 >
-			</navigator>
-			<view class="loading rel" wx:if="{{refresh_top==false}}">
-				<image class="ab udlr" mode="widthFix" src="../image/loading.gif"></image>
-			</view>
-			<view class="none_store" wx:if="{{yellow_list.length==0}}">
-				<view class="rel">
-					<image class="ab udlr img2" mode="aspectFill" src="../image/tie2.png"></image>
-				</view>
-				<view class="center">暂无黄页114信息</view>
-			</view>
-		</view>
-		<view class="yelist" hidden="{{bkname!='4'}}">
-			<view class="banner rel" wx:if="{{pc.length!=0}}">
-				<view class="banner_title flex-center">
-					<image class="banner_che" src="../image/che.png"></image>
-				</view>
-				<view bindtap="carinfo" class="banner_list rel" data-id="{{item.tz.id}}" wx:for="{{pc}}" wx:key="{{item.value}}">
-					<view bindtap="shuninfo" class="mation_title flex-bet">
-						<view class="flex-center madizhi">
-							<view class="gobyndsingle {{item.tz.class3}}" style="max-width:200rpx">{{item.tz.start_place}}</view>
-							<image class="daoda" src="../image/282792329038474488.png"></image>
-							<view class="gobyndsingle {{item.tz.class3}}" style="max-width:200rpx">{{item.tz.end_place}}</view>
-						</view>
-						<view class="banner_time {{item.tz.class3}}">{{item.tz.time}} 发布</view>
-					</view>
-					<view class="flex-bet banner_menu">
-						<view bindtap="shuninfo" class="flex-center banner_content">
-							<image class="timeimg" src="../image/naozhong@2x.png"></image>
-							<view class=" {{item.tz.class3}}">{{item.tz.start_time1}}日 {{item.tz.start_time2}} {{item.tz.num}}人</view>
-						</view>
-						<view bindtap="call_phone" class="flex-center banner_tel {{item.tz.class4}}" data-tel="{{item.tz.link_tel}}">
-							<image class="banner_telimg" src="../image/baidianhua.png"></image>
-							<view class=" ">电话</view>
-						</view>
-					</view>
-					<view class="already_stated ab ud" wx:if="{{item.tz.is_open==2}}">
-						<image mode="aspectFill" src="../image/already_stated.png"></image>
-					</view>
-					<view class="car {{item.tz.class1}}" wx:if="{{item.tz.is_open==1}}">{{item.tz.typename}}</view>
-					<view class="car {{item.tz.class2}}" wx:if="{{item.tz.is_open==2}}">{{item.tz.typename}}</view>
-					<view bindtap="shuninfo" class="beizhu gobyndmulit {{item.tz.class3}}" wx:if="{{item.tz.other!=''}}">备注：{{item.tz.other}}</view>
-				</view>
-			</view>
-			<navigator class="loading rel" openType="navigate" url="../shun/shun" wx:if="{{refresh_top==true&&pc.length!=0}}">
-				点击查看更多 >
-			</navigator>
-			<view class="loading rel" wx:if="{{refresh_top==false}}">
-				<image class="ab udlr" mode="widthFix" src="../image/loading.gif"></image>
-			</view>
-			<view class="none_store" wx:if="{{pc.length==0}}">
-				<view class="rel">
-					<image class="ab udlr img2" mode="aspectFill" src="../image/tie2.png"></image>
-				</view>
-				<view class="center">暂无顺风车信息</view>
-			</view>
-		</view>
-		<view class="yelist" hidden="{{bkname!='5'}}">
-			<view class="tcbanner" wx:if="{{hdlist.length!=0}}" wx:for="{{hdlist}}" wx:key="{{item.id}}">
-				<navigator url="../hdzx/hdzxinfo?hdid={{item.id}}">
-					<view class="tcsection">
-						<image mode="aspectFill" src="{{url}}{{item.logo}}"></image>
-					</view>
-					<view class="vdtitle">{{item.title}}</view>
-					<view class="tcremark flex-bet">
-						<view class="hdleft">{{item.type_name}}
-							<text class="hdmoney" wx:if="{{item.money!=0}}">{{item.money}}元起</text>
-							<text class="mf" wx:else>免费</text>
-							<text class="hdjxz" wx:if="{{item.isgq=='2'&&item.is_bm=='1'}}">预报名</text>
-							<text class="hdjxz1" wx:if="{{item.isgq=='2'&&item.is_bm=='2'}}">已截止</text>
-							<text class="hdjxz1" wx:if="{{item.isgq=='1'}}">已结束</text>
-						</view>
-						<view class="flex-center hdright">
-							<view>
-								<text>{{item.sign_num}}</text>已报名</view>
-						</view>
-					</view>
-				</navigator>
-			</view>
-			<navigator class="loading rel" url="../hdzx/hdzx" wx:if="{{refresh_top==true&&hdlist.length!=0}}">
-				点击查看更多 >
-			</navigator>
-			<view class="loading rel" wx:if="{{refresh_top==false}}">
-				<image class="ab udlr" mode="widthFix" src="../image/loading.gif"></image>
-			</view>
-			<view class="none_store" wx:if="{{hdlist.length==0}}">
-				<view class="rel">
-					<image class="ab udlr img2" mode="aspectFill" src="../image/tie2.png"></image>
-				</view>
-				<view class="center">暂无活动信息</view>
-			</view>
-		</view>
 		<view  class="fon  gobyndsingle gobyndsingle_h3" data-index="{{2}}"
-		 data-name="{{bkarr[2].type}}" id="a{{2}}" >{{bkarr[2].name}}</view>
+		 data-name="{{bkarr[2].type}}" id="a{{2}}" bindtap="moreHQRB">{{bkarr[2].name}}</view>
 					
 		<view class="yelist message_list" >
 			<view>
@@ -408,10 +267,10 @@
 							<text wx:else>{{item.name}}</text>
 							<image src="../image/mine.png" wx:if="{{item.type==1}}"></image>
 							<text wx:if="{{item.m<24}}">
-								<text wx:if="{{item.m==0}}">{{item.h}}分钟前发布</text>
-								<text wx:if="{{item.m>0}}">{{item.m}}小时{{item.h}}分钟前发布</text>
+								<text wx:if="{{item.m==0}}">{{item.h}}分钟前推广</text>
+								<text wx:if="{{item.m>0}}">{{item.m}}小时{{item.h}}分钟前推广</text>
 							</text>
-							<text wx:if="{{item.m>=24}}">{{item.time}} 发布</text>
+							<text wx:if="{{item.m>=24}}">{{item.time}} 推广</text>
 						</view>
 						<text>{{item.yd_num}}阅读</text>
 					</view>
@@ -429,7 +288,7 @@
 		
 		</view>
 	<button class="kefu" openType="contact" sessionFrom="{{userinfo.name}}" wx:if="{{System.is_kf=='1'}}">客服</button>
-	<button class="fabu" >发布</button>
+	<button class="fabu" bindtap="fabu">推广</button>
 	<button bindtap="hddb" class="hddb" wx:if="{{System.is_kf=='1'}}">
 		<image src="../image/zd.png"></image>
 	</button>

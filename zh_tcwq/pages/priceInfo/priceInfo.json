@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "报价信息",
+  "navigationBarTitleText": "行情信息",
   "enablePullDownRefresh": true,
   "usingComponents": {
       

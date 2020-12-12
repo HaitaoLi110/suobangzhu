@@ -181,6 +181,7 @@ Page({
         });
     },
     onLoad: function(t) {
+	
         app.setNavigationBarColor(this), app.pageOnLoad(this), console.log("onLoad"), console.log(t);
         var e = decodeURIComponent(t.scene);
         if (console.log("scene", e), "undefined" != e) var a = e;
@@ -367,8 +368,7 @@ Page({
                                     cachetime: "0",
                                     success: function(t) {
                                         if (console.log(t), 0 != t.data.length && t.data) {
-                                            "1" == (e = t.data)[0].type && c.seller(), "2" == e[0].type && c.sjbk(), "3" == e[0].type && c.hybk(), 
-                                            "4" == e[0].type && c.sfcbk(), "5" == e[0].type && c.hdbmbk(), "6" == e[0].type && c.zxbk();
+                                            "1" == (e = t.data)[0].type && c.seller(), "2" == e[0].type && c.sjbk(),  "6" == e[0].type && c.zxbk();
                                         } else {
                                             var e = [ {
                                                 type: "1",
@@ -547,7 +547,8 @@ Page({
                     height: 300
                 });
                 for (var a = [], n = 0, i = e.length; n < i; n += 10) a.push(e.slice(n, n + 10));
-                o.setData({
+               console
+				o.setData({
                     nav: a,
                     navs: e
                 });
@@ -651,105 +652,15 @@ Page({
             }
         });
     },
-    hybk: function() {
-		
-        var a = this, t = (a.data.index_class, wx.getStorageSync("city")), n = (wx.getStorageSync("index"), 
-        a.data.page), i = a.data.yellow_list;
-        console.log(t), app.util.request({
-            url: "entry/wxapp/YellowPageList",
-            cachetime: "0",
-            data: {
-                type: 1,
-                lat: wx.getStorageSync("Location").latitude,
-                lng: wx.getStorageSync("Location").longitude,
-                page: n,
-                cityname: t
-            },
-            success: function(t) {
-                if (console.log(t), 0 == t.data.length ? a.setData({
-                    refresh_top: !0
-                }) : (a.setData({
-                    refresh_top: !1,
-                    page: n + 1,
-                    issljz: !0
-                }), i = i.concat(t.data)), 0 < t.data.length) {
-                    for (var e in t.data) t.data[e].distance = (parseFloat(t.data[e].juli) / 1e3).toFixed(2);
-                    a.setData({
-                        yellow_list: i
-                    });
-                } else a.setData({
-                    yellow_list: i
-                });
-            }
-        });
-    },
-    sfcbk: function() {
-        var a = this, t = (a.data.index_class, wx.getStorageSync("city")), n = (wx.getStorageSync("index"), 
-        a.data.page), i = a.data.pc;
-        console.log(t), app.util.request({
-            url: "entry/wxapp/CarList",
-            cachetime: "0",
-            data: {
-                page: n,
-                cityname: t
-            },
-            success: function(t) {
-                if (console.log(t), 0 == t.data.length ? a.setData({
-                    refresh_top: !0
-                }) : (a.setData({
-                    refresh_top: !1,
-                    page: n + 1,
-                    issljz: !0
-                }), i = i.concat(t.data)), 0 < t.data.length) {
-                    for (var e in t.data) t.data[e].tz.time = app.ormatDate(t.data[e].tz.time).slice(5, 16), 
-                    t.data[e].tz.start_time1 = t.data[e].tz.start_time.slice(5, 10), t.data[e].tz.start_time2 = t.data[e].tz.start_time.slice(10, 17), 
-                    2 == t.data[e].tz.is_open ? (t.data[e].tz.class2 = "car3", t.data[e].tz.class3 = "car4", 
-                    t.data[e].tz.class4 = "car5") : (t.data[e].tz.class2 = "", t.data[e].tz.class3 = "", 
-                    t.data[e].tz.class4 = ""), "人找车" == t.data[e].tz.typename ? (t.data[e].tz.class = "color1", 
-                    t.data[e].tz.class1 = "car1") : "车找人" == t.data[e].tz.typename ? (t.data[e].tz.class = "color2", 
-                    t.data[e].tz.class1 = "car2") : "货找车" == t.data[e].tz.typename ? (t.data[e].tz.class = "color1", 
-                    t.data[e].tz.class1 = "car1") : "车找货" == t.data[e].tz.typename && (t.data[e].tz.class = "color2", 
-                    t.data[e].tz.class1 = "car2");
-                    a.setData({
-                        pc: i
-                    });
-                } else a.setData({
-                    pc: i
-                });
-            }
-        });
-    },
-    hdbmbk: function(t) {
-        var a = this, e = Data.formatTime(new Date()), n = Data.formatTime(new Date()).replace(/\//g, "-").toString();
-        console.log(e, n);
-        var i = wx.getStorageSync("city"), s = a.data.page, o = a.data.hdlist;
-        console.log(i), app.util.request({
-            url: "entry/wxapp/Activity",
-            cachetime: "0",
-            data: {
-                type_id: "",
-                page: s,
-                pagesize: 10,
-                cityname: i
-            },
-            success: function(t) {
-                console.log(t.data), 0 == t.data.length ? a.setData({
-                    refresh_top: !0
-                }) : a.setData({
-                    refresh_top: !1,
-                    page: s + 1,
-                    issljz: !0
-                }), o = function(t) {
-                    for (var e = [], a = 0; a < t.length; a++) -1 == e.indexOf(t[a]) && e.push(t[a]);
-                    return e;
-                }(o = o.concat(t.data)), console.log(o);
-                for (var e = 0; e < o.length; e++) o[e].end_time > n ? o[e].isgq = 2 : o[e].isgq = 1;
-                a.setData({
-                    hdlist: o
-                });
-            }
-        });
-    },
+    
+fabu:function(){
+	wx.navigateTo({
+	    url: "../fabu/fabu/fabu",
+	    success: function(t) {},
+	    fail: function(t) {},
+	    complete: function(t) {}
+	});
+},
     zxbk: function() {
 		console.log('zxbk')
         var c = this, l = Data.formatTime(new Date()), t = wx.getStorageSync("city"), u = c.data.zxlist;
@@ -806,7 +717,7 @@ Page({
             zxlist: [],
             page: 1,
             issljz: !1
-        }), "1" == n ? e.seller() : "2" == n ? e.sjbk() : "3" == n ? e.hybk() : "4" == n ? e.sfcbk() : "5" == n ? e.hdbmbk() : "6" == n && e.zxbk();
+        }), "1" == n ? e.seller() : "2" == n ? e.sjbk()  : "6" == n && e.zxbk();
     },
     whole: function(t) {
         wx.removeStorage({
@@ -1145,7 +1056,7 @@ Page({
 	},
     onReachBottom: function() {
         var t = this, e = this.data.bkname;
-        0 == this.data.refresh_top && this.data.issljz ? (console.log("上拉触底", e), "1" == e ? t.seller() : "2" == e ? t.sjbk() : "3" == e ? t.hybk() : "4" == e ? t.sfcbk() : "5" == e ? t.hdbmbk() : "6" == e && t.zxbk()) : console.log("dobutno");
+        0 == this.data.refresh_top && this.data.issljz ? (console.log("上拉触底", e), "1" == e ? t.seller() : "2" == e ? t.sjbk() : "6" == e && t.zxbk()) : console.log("dobutno");
     },
     onShareAppMessage: function() {
         var t = this.data.System.zf_title;
@@ -1155,5 +1066,35 @@ Page({
             success: function(t) {},
             fail: function(t) {}
         };
-    }
+    },
+	moreZXBJ:function(){
+			wx.navigateTo({
+                url: "../typeP/typeP",
+                success: function(t) {
+                  
+                },
+                fail: function(t) {},
+                complete: function(t) {}
+            });	
+	},
+	moreZXGQ:function(){
+		wx.navigateTo({
+		    url: "../type/type",
+		    success: function(t) {
+		      
+		    },
+		    fail: function(t) {},
+		    complete: function(t) {}
+		});	
+	},
+	moreHQRB:function(){
+		wx.navigateTo({
+		    url: "../message/message",
+		    success: function(t) {
+		      
+		    },
+		    fail: function(t) {},
+		    complete: function(t) {}
+		});	
+	}
 });

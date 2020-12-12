@@ -327,3 +327,18 @@ page {
 	left: 0;
 	background: rgba(0,0,0,.65);
 }
+.bussniess_closed{
+	position: absolute;
+	border: rgba(255,255,255.85) 1px solid;
+	border-radius: 50%;
+	text-align: center;
+	display: block;
+	width: 45rpx;
+	height: 45rpx;
+	line-height: 45rpx;
+	font-size: 36rpx;
+	top: -55rpx;
+	right: -20rpx;
+	color: #fff;
+	
+}

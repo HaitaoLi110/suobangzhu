@@ -1,82 +1,35 @@
-/* zh_tcwq/pages/logs/user_info.wxss */
-.content{
-	background-color: #fff;
-	
-}
-.line{
-	display: flex;
-	border-bottom: #eaeaea solid 1px;
-	line-height: 40rpx;
-	
+/* directory.wxss */
+
+.container {
+  display: block;
+  background-color: #fafafa;
+  padding: 0;
 }
 
-.label{
-	width: 200rpx;
-	flex-shrink: 0;
-	padding-right: 10rpx;
-	text-align: right;
-	padding: 30rpx 0;
-}
-.oper{
-	float: left;
-	flex-grow: 1;
-	padding: 10rpx 0;
-}
-.oper input,.picker{
-	padding: 20rpx 0;
-}
-.oper .coveImg{
-	width: 100rpx;
-	height: 100rpx;
-	border-radius: 50%;
-}
-.udlr{
-	width: 150rpx;
-	height: 150rpx;
-	 top: 0;
-	    bottom: 0;
-	    left: 0;
-	    right: 0;
-	    margin: auto;
-}
-.delete {
-    width: 100%;
-    height: 50rpx;
-    top: 0;
-    z-index: 500;
+.top-menu {
+  display: flex;
+  position: fixed;
+  height: 80rpx;
+  z-index: 10;
+  background-color: #fff;
+  width: 100%;
+  top: 0;
+  left: 0;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  border-top: 2rpx solid #ddd;
+  border-bottom: 2rpx solid #ddd;
+  font-size: 11pt;
+  color: #bdbdbd;
 }
 
-.delete image {
-    width: 50rpx;
-    height: 50rpx;
-    right: 0;
+.line {
+  width: 2rpx;
+  height: 100%;
+  background-color: #ddd;
 }
-.carousel_img1 {
-    width: 21%;
-    height: 160rpx;
-    overflow: hidden;
-    margin-left: 4%;
-	display: inline-block;
-}
-.carousel_img1>image {
-    width: 100%;
-    height: 100%;
-}
-.carousel_img2 {
-    width: 21%;
-    height: 160rpx;
-    margin-left: 4%;
-    border: 1rpx solid #666;
-	display: inline-block;
-}
-.user_checkbox{
-	display: inline-block;
-	margin-right: 20rpx;
-	padding-bottom: 20rpx;
-}
-.label text{
-	color: #f93535;
-}
+
 .state-menu {
   display: flex;
   position: fixed;
@@ -158,7 +111,6 @@
   bottom: 0rpx;
   left: 0rpx;
   height: 40vh;
-  z-index: 999;
 }
 
 .picker-item {

@@ -5,7 +5,7 @@ Page({
         index: 0,
         types: 1,
 		djss:0,
-		shares:!1,
+		shares:false,
 		phone:15330012145,
 		zx:[{icon: "",
 			id: "1",
@@ -360,4 +360,9 @@ Page({
 	        djss: !1
 	    });
 	},
+	sharesFalse:function(){
+		this.setData({
+			shares:false
+		})
+	}
 });

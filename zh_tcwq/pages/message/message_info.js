@@ -3,7 +3,8 @@ var app = getApp();
 Page({
     data: {
         speak: !1,
-        hydl: !1
+        hydl: !1,
+		isTiptrue: true
     },
     updateUserInfo: function(e) {
         console.log(e), "getUserInfo:ok" == e.detail.errMsg && (this.setData({
@@ -104,7 +105,24 @@ Page({
                 });
             }
         });
-    },
+    
+	// onLoad中添加以下代码
+	  let firstOpen = wx.getStorageSync("loadOpen")    
+	  if (firstOpen == undefined || firstOpen == '') { // 根据缓存周期决定是否显示新手引导      
+	    a.setData({ isTiptrue: true })    
+	  } 
+	  else {      
+	    a.setData({ isTiptrue: false })    
+	  }
+	},
+	// Page中添加关闭引导
+	  closeGuide: function (e) {    
+	    wx.setStorage({      
+	      key: 'loadOpen',      
+	      data: 'OpenTwo'    
+	    })    
+	    this.setData({ isTiptrue: false }) 
+	  },
     refresh: function(e) {
         var u = this, t = u.data.id;
         var a, o, n, r = u.data.user_id, l = (a = new Date(), o = a.getMonth() + 1, n = a.getDate(), 
