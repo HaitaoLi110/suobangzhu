@@ -23,12 +23,12 @@ Page({
     onLoad: function(e) {
        var r = this;
        app.util.request({
-           url: "entry/wxapp/storeList_mp",
+           url: "entry/wxapp/MyCardList",
            cachetime: "0",
            success: function(e) {
                console.log(e)
        		r.setData({
-                   zx: e.data
+                   zx: e.data.data
                });
            }
        });  
