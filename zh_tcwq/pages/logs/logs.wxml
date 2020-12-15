@@ -10,7 +10,7 @@
             <image class="mrtxl" src="../image/mtx.png"></image>
             <view class="mrtxr">
                 <view class="wxyh">微信用户  </view>
-				  <text class="huiyuan">{{groupid}}</text>
+				 
                 <button bindgetuserinfo="bindGetUserInfo" class="djsq" openType="getUserInfo" style="background:{{color}}" wx:if="{{hydl}}">点击授权</button>
             </view>
         </view>
@@ -18,6 +18,7 @@
             <image class="picture" src="{{avatarUrl}}"></image>
             <view class="header_name">
                 <view>{{nickName}}</view>
+				<text class="huiyuan">{{groupid}}</text>
                 <view bindtap="tchhr" class="head_hhr flex-center" wx:if="{{System.is_hhr==1&&System.is_hhrqx==1&&UserInfo}}">
                     <image class="head_hhr1" mode="aspectFit" src="../image/myhz.png"></image>
                     <view class="head_hhr2" wx:if="{{MyDistribution.state=='2'}}">{{MyDistribution.name}}</view>
@@ -26,6 +27,7 @@
                 </view>
             </view>
         </view>
+		 
     </view>
 </view>
 <view class="list">

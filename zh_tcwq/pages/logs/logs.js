@@ -122,8 +122,8 @@ Page({
 				});
 				
 		    }else{
-				e.setDate({
-					groupid:groupid
+				e.setData({
+					groupid:t.data.title
 				})
 			}
 			
