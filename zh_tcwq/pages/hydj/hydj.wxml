@@ -1,0 +1,7 @@
+<view class="cpncent">
+	<block wx:for="{{list}}" wx:key="item">
+	<view class="item_info" bindTop="groupid" id="{{item.id}}">
+		<text>{{item.title}}</text><text>{{ item.sj }}</text><text>{{ item.price}}</text>
+	</view>
+	</block>
+</view>

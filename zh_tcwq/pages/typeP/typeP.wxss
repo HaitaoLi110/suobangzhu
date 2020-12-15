@@ -253,6 +253,8 @@ page {
 .tab_nav{
 	display: inline-block;
 }
+
+/* 分享 */
 .bussniess {
     width: 80%;
     height: 450rpx;

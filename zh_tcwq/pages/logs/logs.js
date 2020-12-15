@@ -62,6 +62,7 @@ Page({
    },
 	onLoad: function(t) {
         var e = this, n = getCurrentPages();
+		var openid = wx.getStorageSync("openid")
         n.route = "zh_tcwq/pages/logs/index", 1 == e.data.Return && n.setData({
             Return: !0
         }), app.pageOnLoad(this), app.setNavigationBarColor(this), this.changeData();
@@ -79,6 +80,42 @@ Page({
             nickName: c.nickName
         });
 		e.tuiSong()
+		
+		//获取会员状态
+		app.util.request({
+		    url: "entry/wxapp/UserGroupInfo",
+		    cachetime: "30",
+		    data: {
+		        openid: openid
+		    },
+		    success: function(t) {
+				if(!t.data.groupid){
+					wx.showModal({
+					    title: "开通会员",
+					    content: "是否继续开通会员",
+					    showCancel: !0,
+					    cancelText: "取消",
+					    confirmText: "确定",
+					    success: function(t) {
+							
+						},
+					    fail: function(t) {},
+					    complete: function(t) {}
+				});
+				 wx.navigateTo({
+                    url: "../hydj/hydj",
+                    success: function(t) {},
+                    fail: function(t) {},
+                    complete: function(t) {}
+                });
+		    }else{
+				e.setDate({
+					groupid:groupid
+				})
+			}
+			}
+		})
+		
     },
     collection: function(t) {
         wx.navigateTo({

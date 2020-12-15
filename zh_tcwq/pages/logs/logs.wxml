@@ -10,6 +10,7 @@
             <image class="mrtxl" src="../image/mtx.png"></image>
             <view class="mrtxr">
                 <view class="wxyh">微信用户</view>
+				<text>{{groupid}}</text>
                 <button bindgetuserinfo="bindGetUserInfo" class="djsq" openType="getUserInfo" style="background:{{color}}" wx:if="{{hydl}}">点击授权</button>
             </view>
         </view>
@@ -89,3 +90,4 @@
     <image src="{{url}}{{bq_logo}}"></image>
     <text>{{System.bq_name}}</text>
 </view>
+
