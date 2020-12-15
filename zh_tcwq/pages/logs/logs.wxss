@@ -299,6 +299,6 @@
     margin-right: 20rpx;
 }
 .huiyuan{
-	font-size: 22rpx;
+	
 	color: #666;
 }
