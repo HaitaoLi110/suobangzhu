@@ -2,7 +2,8 @@ var util = require("../../utils/util.js"), app = getApp();
 
 Page({
     data: {
-        Return: !1
+        Return: !1,
+		groupid:"第二级会员"
     },
     bindGetUserInfo: function(t) {
         "getUserInfo:ok" == t.detail.errMsg && (this.setData({
@@ -61,6 +62,7 @@ Page({
 		 })
    },
 	onLoad: function(t) {
+		console.log("sf"+t)
         var e = this, n = getCurrentPages();
 		var openid = wx.getStorageSync("openid")
         n.route = "zh_tcwq/pages/logs/index", 1 == e.data.Return && n.setData({
@@ -97,23 +99,37 @@ Page({
 					    cancelText: "取消",
 					    confirmText: "确定",
 					    success: function(t) {
+							if(t.cancel){
+								return false;
+							}else{
+								wx.navigateTo({
+							    url: "../hydj/hydj",
+							    success: function(t) {},
+							    fail: function(t) {},
+							    complete: function(t) {
+                                  
+                                }
+							});
+							}
 							
 						},
-					    fail: function(t) {},
-					    complete: function(t) {}
+					    fail: function(t) {
+							
+						},
+					    complete: function(t) {
+							
+						}
 				});
-				 wx.navigateTo({
-                    url: "../hydj/hydj",
-                    success: function(t) {},
-                    fail: function(t) {},
-                    complete: function(t) {}
-                });
+				
 		    }else{
 				e.setDate({
 					groupid:groupid
 				})
 			}
+			
+			
 			}
+			
 		})
 		
     },

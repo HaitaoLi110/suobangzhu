@@ -23,6 +23,7 @@ Page({
     onLoad: function(e) {
        var r = this;
        app.util.request({
+
            url: "entry/wxapp/MyCardList",
            cachetime: "0",
            success: function(e) {

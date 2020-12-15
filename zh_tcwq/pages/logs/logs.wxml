@@ -9,8 +9,8 @@
         <view class="mrtxc" wx:if="{{hydl}}">
             <image class="mrtxl" src="../image/mtx.png"></image>
             <view class="mrtxr">
-                <view class="wxyh">微信用户</view>
-				<text>{{groupid}}</text>
+                <view class="wxyh">微信用户  </view>
+				  <text class="huiyuan">{{groupid}}</text>
                 <button bindgetuserinfo="bindGetUserInfo" class="djsq" openType="getUserInfo" style="background:{{color}}" wx:if="{{hydl}}">点击授权</button>
             </view>
         </view>
