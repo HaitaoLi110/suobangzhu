@@ -374,7 +374,7 @@ body {
     height: 1005;
 	display: flex;
 	 flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: center;
 }
 
 .classify  .view-item{

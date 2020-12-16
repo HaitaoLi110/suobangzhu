@@ -3,7 +3,7 @@ var util = require("../../utils/util.js"), app = getApp();
 Page({
     data: {
         Return: !1,
-		groupid:"第二级会员"
+		groupid:""
     },
     bindGetUserInfo: function(t) {
         "getUserInfo:ok" == t.detail.errMsg && (this.setData({
@@ -61,6 +61,58 @@ Page({
 		   }
 		 })
    },
+   open_hy:function(){
+	   var e = this;
+	   var openid = wx.getStorageSync("openid")
+	   //获取会员状态
+	   app.util.request({
+	       url: "entry/wxapp/UserGroupInfo",
+	       cachetime: "30",
+	       data: {
+	           openid: openid
+	       },
+	       success: function(t) {
+	   		if(!t.data.groupid){
+	   			wx.showModal({
+	   			    title: "开通会员",
+	   			    content: "是否继续开通会员",
+	   			    showCancel: !0,
+	   			    cancelText: "取消",
+	   			    confirmText: "确定",
+	   			    success: function(t) {
+	   					if(t.cancel){
+	   						return false;
+	   					}else{
+	   						wx.navigateTo({
+	   					    url: "../hydj/hydj",
+	   					    success: function(t) {},
+	   					    fail: function(t) {},
+	   					    complete: function(t) {
+	                             
+	                           }
+	   					});
+	   					}
+	   					
+	   				},
+	   			    fail: function(t) {
+	   					
+	   				},
+	   			    complete: function(t) {
+	   					
+	   				}
+	   		});
+	   		
+	       }else{
+	   		e.setData({
+	   			groupid:t.data.title
+	   		})
+	   	}
+	   	
+	   	
+	   	}
+	   	
+	   })
+   },
 	onLoad: function(t) {
 		console.log("sf"+t)
         var e = this, n = getCurrentPages();
@@ -83,54 +135,7 @@ Page({
         });
 		e.tuiSong()
 		
-		//获取会员状态
-		app.util.request({
-		    url: "entry/wxapp/UserGroupInfo",
-		    cachetime: "30",
-		    data: {
-		        openid: openid
-		    },
-		    success: function(t) {
-				if(!t.data.groupid){
-					wx.showModal({
-					    title: "开通会员",
-					    content: "是否继续开通会员",
-					    showCancel: !0,
-					    cancelText: "取消",
-					    confirmText: "确定",
-					    success: function(t) {
-							if(t.cancel){
-								return false;
-							}else{
-								wx.navigateTo({
-							    url: "../hydj/hydj",
-							    success: function(t) {},
-							    fail: function(t) {},
-							    complete: function(t) {
-                                  
-                                }
-							});
-							}
-							
-						},
-					    fail: function(t) {
-							
-						},
-					    complete: function(t) {
-							
-						}
-				});
-				
-		    }else{
-				e.setData({
-					groupid:t.data.title
-				})
-			}
-			
-			
-			}
-			
-		})
+	
 		
     },
     collection: function(t) {

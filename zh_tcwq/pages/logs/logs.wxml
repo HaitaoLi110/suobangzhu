@@ -45,6 +45,10 @@
                 <view class="mytext" style="color:{{System.color}}">{{MyCollection.length}}</view>
                 <view>收藏</view>
             </view>
+			<view bindtap="open_hy" class="flex3 list_collet" wx:if="{{!groupid}}">
+			    <view  class="mytext" style="color:{{System.color}}">点</view>
+			    <view>开通会员</view>
+			</view>
         </view>
     </view>
 </view>

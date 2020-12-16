@@ -1,20 +1,19 @@
-
-
-<block >
-    <view class="head" >
-			<image class="slide-image" mode="aspectFill" src="{{xtxx.img}}"></image>
-    </view>
-    <view class="weui-cells weui-cells_after-title" style="border-bottom:1rpx solid #efeff4">
+ 
+ <view class="users_info">
+	  <image src="{{xtxx.img}}" class="user_logo" ></image>
+	  <view class="" style="font-weight:bold">{{xtxx.company}}</view>
+	  <view class="" style="font-weight:bold;">{{xtxx.name}}</view>
+ </view>
+   <!-- <view class="weui-cells weui-cells_after-title" style="border-bottom:1rpx solid #efeff4">
         <view class="weui-cell weui-cell_access" hoverClass="weui-cell_active">
             <view class="weui-cell__hd">
-                <image src="../image/roomc.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+                <image src="{{xtxx.img}}" class="user_logo" ></image>
             </view>
-            <view class="weui-cell__bd" style="font-weight:bold">介绍</view>
+            <view class="" style="font-weight:bold">{{xtxx.company}}</view>
+			
+            <view class="" style="font-weight:bold;">{{xtxx.name}}</view>
         </view>
-    </view>
-    <view class="seller_info margin">
-        <rich-text nodes="{{xtxx.introduce}}"></rich-text>
-    </view>
+    </view> -->
     <view class="weui-cells weui-cells_after-title" style="margin-bottom: 30rpx;">
         <navigator bindtap="maketel" class="weui-cell weui-cell_access" hoverClass="weui-cell_active">
             <view class="weui-cell__hd">
@@ -23,13 +22,7 @@
             <view class="weui-cell__bd">联系电话：{{xtxx.user_tel}}</view>
             <view class="weui-cell__ft weui-cell__ft_in-access"></view>
         </navigator>
-     <!--  <navigator class="weui-cell weui-cell_access" hoverClass="weui-cell_active" url="">
-            <view class="weui-cell__hd">
-                <image src="../image/life.png" style="margin-right: 10px;vertical-align: middle;width:20px; height: 20px;"></image>
-            </view>
-            <view class="weui-cell__bd">营业时间：{{xtxx.gs_time}}</view>
-            <view class="weui-cell__ft"></view>
-        </navigator> -->
+     
         <navigator bindtap="location" class="weui-cell weui-cell_access" hoverClass="weui-cell_active">
             <view class="weui-cell__hd">
                 <image src="../image/address3.png" style="margin-right: 10px;vertical-align: middle;width:20px; height: 20px;"></image>
@@ -38,13 +31,21 @@
             <view class="weui-cell__ft weui-cell__ft_in-access"></view>
         </navigator>
     </view>
-</block>
+	<view class="seller_info margin">
+		<view>
+			主营：{{item.zhuying}}
+		</view>
+	    
+	</view>
+	<view class="seller_info margin">
+	    <rich-text nodes="{{xtxx.introduce}}"></rich-text>
+	</view>
 
-<view wx:for="{{xtxx.companyimg}}" wx:key="item" wx:if="{{xtxx.companyimg}}">
+<view class="userpad" wx:for="{{xtxx.companyimg}}" wx:key="item" wx:if="{{xtxx.companyimg}}">
 	<image src="{{item}}"></image>
 </view>
 
-<view wx:for="{{xtxx.chanpinimg}}" wx:key="item" wx:if="{{xtxx.chanpinimg}}">
+<view class="userpad" wx:for="{{xtxx.chanpinimg}}" wx:key="item" wx:if="{{xtxx.chanpinimg}}">
 	<image src="{{item}}"></image>
 </view>
 <!-- <block wx:if="{{xtxx.model=='1'}}">
