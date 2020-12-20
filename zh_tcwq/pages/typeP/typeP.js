@@ -6,7 +6,8 @@ Page({
         types: 1,
 		djss:0,
 		shares:false,
-		phone:15330012145,
+        phone:15330012145,
+        isShowMy:false,
 		zx:[{icon: "",
 			id: "1",
 			sort: "0",
@@ -25,6 +26,12 @@ Page({
     },
     onLoad: function(e) {
         var t = this;
+        //判断是否从我的报价跳转过来的
+        if(e.showMy){
+            t.setData({
+                isShowMy:true
+            })
+        }
         app.util.request({
             url: "entry/wxapp/System",
             cachetime: "0",
@@ -54,6 +61,8 @@ Page({
                 "name": wx.getStorageSync("users").name
             }
         })
+
+        
     },
     refresh: function(e) {
         var r = this;
@@ -93,14 +102,12 @@ Page({
         t = wx.getStorageSync("city");
         console.log("城市为" + t);
         var u = r.data.page, f = r.data.info;
-        null == u && (u = 1), null == f && (f = []), app.util.request({
-            url: "entry/wxapp/IndexBjList",
+        null == u && (u = 1), null == f && (f = []);
+        var dataurl =r.data.isShowMy?"entry/wxapp/MyBjList":"entry/wxapp/IndexBjList"; var dataJson = r.data.isShowMy?{ "page": r.data.page,"user_id": wx.getStorageSync("users").id}:{ "page": r.data.page,"cityname": t, "type_id":5};
+        app.util.request({
+            url: dataurl,
             cachetime: "0",
-            data: {
-                page: r.data.page,
-                cityname: t,
-				type_id:5
-            },
+            data: dataJson,
             success: function(e) {
 				
                 if (console.log(e), 0 == e.data.length) r.setData({
@@ -308,50 +315,7 @@ Page({
         0 == this.data.refresh_top && this.refresh();
     },
     onShareAppMessage: function() {},
-	bindinput: function(t) {
-	    var a = t.detail.value;
-	    this.setData({
-	        value: a
-	    });
-	},
-	search: function(t) {
-	    var a = this.data.value, e = this;
-	    console.log(a), e.setData({
-	        ssjgarr: [],
-	        djss: !1
-	    }), "" != a ? app.util.request({
-	        url: "entry/wxapp/StoreList",
-	        cachetime: "0",
-	        data: {
-	            keywords: a,
-	            page: 1,
-	            pagesize: 50
-	        },
-	        success: function(t) {
-	            console.log(t), e.setData({
-	                djss: !0,
-	                ssjgarr: t.data
-	            });
-	        }
-	    }) : wx.showToast({
-	        title: "请输入内容",
-	        icon: "loading"
-	    });
-	},
-	store: function(t) {
-	    var a = t.currentTarget.dataset.id;
-	    wx.navigateTo({
-	        url: "../sellerinfo/sellerinfo?id=" + a,
-	        success: function(t) {},
-	        fail: function(t) {},
-	        complete: function(t) {}
-	    });
-	},
-	sqss: function() {
-	    this.setData({
-	        djss: !1
-	    });
-	},
+
 	sharesFalse:function(){
 		this.setData({
 			shares:false

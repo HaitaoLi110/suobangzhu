@@ -1,27 +1,17 @@
 <include src="/zh_tcwq/pages/car/navbar.wxml"></include>
-	<view class="searchbox">
-	    <input bindinput="bindinput" class="input" placeholder="请输入您要查询的关键词" ></input>
-	    <button bindtap="search" class="search" style="background:{{System.color}}">搜索</button>
-	    <view class="ssjg" wx:if="{{djss}}">
-	        <scroll-view scrollY="true" style="height:450rpx;">
-	            <view bindtap="store" data-id="{{item.id}}" wx:if="{{ssjgarr.length>0}}" wx:for="{{ssjgarr}}">{{item.store_name}}</view>
-	            <view wx:if="{{ssjgarr.length==0}}">暂无符合你搜索的厂家~</view>
-	        </scroll-view>
-	        <button bindtap="sqss" style="background:{{System.color}}">收起</button>
-	    </view>
-	</view>
+	
 <view class="container" style="margin-bottom:115rpx">
-    <view class="header">
+    <view class="header" wx:if="{{!isShowMy}}">
         <view bindtap="click" class="tab_nav {{active_index==index ?'click3':'click4'}} {{index==0 ?'click3':'click4'}}" data-index="{{index}}" style="color:{{active_index==index?system.color:''}};border-color:{{active_index==index?system.color:''}}" wx:for="{{zx}}" wx:key="*this">{{item.type_name}}</view>
     </view>
-    <view class="figure" wx:if="{{slide.length!=0}}">
+    <view class="figure" wx:if="{{slide.length!=0}}" >
         <swiper autoplay="auto" circular="true" duration="500" indicatorActiveColor="#ccc" indicatorColor="white" indicatorDots="true" interval="5000">
             <swiper-item wx:for="{{slide}}" wx:key="*this">
                 <image bindtap="jumps" data-appid="{{item.appid}}" data-name="{{item.xcx_name}}" data-src="{{item.src}}" mode="aspectFill" src="{{url}}{{item.logo}}"></image>
             </swiper-item>
         </swiper>
     </view>
-    <view class="message_list">
+    <view class="message_list"  wx:if="{{info != undefined}}">
         <view bindtap="message" data-id="{{item.id}}" wx:if="{{info.length!=0}}" wx:for="{{info}}" wx:key="*this">
             <block wx:if="{{item.imgs.length>1||item.imgs==''}}">
                 <view class="title">{{item.title}}</view>
@@ -44,7 +34,7 @@
                     </text>
                     <text wx:if="{{item.m>=24}}">{{item.time}}  发布</text>
                 </view>
-                <text>{{item.yd_num}}阅读</text>
+                <!-- <text>{{item.yd_num}}阅读</text> -->
             </view>
         </view>
     </view>

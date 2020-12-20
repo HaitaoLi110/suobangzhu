@@ -65,7 +65,7 @@
     
         <view bindtap="jfsc" class="banner_list" >
             <image class="list_allimg" src="../image/welfare.png"></image>
-            <view class="list_alltext">我的报价</view>
+            <view class="list_alltext">我的行情信息</view>
         </view>
    
         <view bindtap="myInfo" class="banner_list">

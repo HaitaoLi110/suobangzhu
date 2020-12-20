@@ -147,7 +147,7 @@ Page({
   
     jfsc: function() {
         wx.navigateTo({
-            url: "../typeP/typeP"
+            url: "../typeP/typeP?showMy=true"
         });
     },
   
