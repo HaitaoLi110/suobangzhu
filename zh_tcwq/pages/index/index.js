@@ -1024,20 +1024,6 @@ fabu:function(){
             }
         }), e.reload(), wx.stopPullDownRefresh();
     },
-	speakKF: function(e) {
-		var that = this;
-		
-	    wx.makePhoneCall({
-	          phoneNumber: that.data.phone,
-	          success: function () {
-	            console.log('成功拨打电话')
-	          }
-	        })
-			setTimeout(function() {
-			    wx.navigateBack({});
-			}, 1e3)
-		
-	},
 	sharebtn:function(e){
 		var that = this;
 		let user_id = wx.getStorageSync('users').id;

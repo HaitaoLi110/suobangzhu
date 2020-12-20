@@ -1,5 +1,5 @@
 {
-    "navigationBarTitleText": "报价",
+    "navigationBarTitleText": "行情信息详情",
     "enablePullDownRefresh": true,
     "usingComponents": {
         "store-cell": "/zh_tcwq/component/store-cell",

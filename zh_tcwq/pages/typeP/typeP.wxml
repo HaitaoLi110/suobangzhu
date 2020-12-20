@@ -70,7 +70,7 @@
 			联系客服或者分享查看
         </view>
         <view>
-            <view bindtap="speakKF">联系客服</view>
+            <view >	<button openType="contact" sessionFrom="{{userinfo.name}}" class="shares">	联系客服</button></view>
             <view bindtap="sharebtn" >
 				<button  openType="share" class="shares">分享查看</button>
 				</view>

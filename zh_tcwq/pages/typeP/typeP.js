@@ -49,6 +49,11 @@ Page({
                 });
             }
         }), t.refresh();
+        t.setData({
+            "userinfo":{
+                "name": wx.getStorageSync("users").name
+            }
+        })
     },
     refresh: function(e) {
         var r = this;
@@ -226,20 +231,7 @@ Page({
             active_index: -1
         });
     },
-	speakKF: function(e) {
-		var that = this;
-		
-	    wx.makePhoneCall({
-	          phoneNumber: that.data.phone,
-	          success: function () {
-	            console.log('成功拨打电话')
-	          }
-	        })
-			setTimeout(function() {
-			    wx.navigateBack({});
-			}, 1e3)
-		
-	},
+	
 	sharebtn:function(){
 		var that = this;
 		let user_id = wx.getStorageSync('users').id;
