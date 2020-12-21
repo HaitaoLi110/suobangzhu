@@ -118,7 +118,7 @@ Page({
                 }), e = e.data,f = f.concat(e.data), e.data) {
                     e.data[t].time = e.data[t].time.slice(0, 16), null == e.data[t].img ? e.data[t].type = 1 : e.data[t].type = 2;
                     var a = l, o = e.data[t].time.replace(/-/g, "/"), n = /(\d{4})-(\d{1,2})-(\d{1,2})( \d{1,2}:\d{1,2})/g, s = Math.abs(Date.parse(a.replace(n, "$2-$3-$1$4")) - Date.parse(o.replace(n, "$2-$3-$1$4"))) / 1e3, c = Math.floor(s / 3600), i = Math.floor(s % 3600 / 60);
-                    e.data[t].m = c, e.data[t].h = i, console.log(c + " 小时 " + i + " 分钟"), e.data[t].imgs = e.data[t].imgs.split(",").slice(0, 3);
+                    e.data[t].m = c, e.data[t].h = i, console.log(c + " 小时 " + i + " 分钟"), e.data[t].imgs =e.data[t].imgs? e.data[t].imgs.split(",").slice(0, 3):'';
                 }
                 console.log(f), r.setData({
                     info: f,

@@ -28,13 +28,16 @@ Page({
                 });
             }
         }), app.util.request({
-            url: "entry/wxapp/Hbmx",
+            url: "entry/wxapp/Hygmmx",
             cachetime: "0",
             data: {
-                user_id: a
+                openid:wx.getStorageSync("openid")
             },
             success: function(t) {
-                for (var e in t.data) t.data[e].time = o.ormatDate(t.data[e].time).slice(0, 16);
+                for (var e in t.data){
+                    t.data[e].time = o.ormatDate(t.data[e].time).slice(0, 16);
+                    t.data[e].status = t.data[e].status == 2?"支付成功" :"待支付"
+                } 
                 var a = t.data.sort(function(t, e) {
                     return (t = Number(t.time)) < (e = Number(e.time)) ? -1 : e < t ? 1 : 0;
                 });

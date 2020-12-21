@@ -236,6 +236,7 @@ Page({
 	    },
 	   
 	formSubmit: function(e) {
+		
 		var that = this;
 		let msg = e.detail.value;
 		let users = wx.getStorageSync("users");

@@ -277,3 +277,16 @@
     color: #999;
     padding-top: 20rpx;
 }
+.banner_text_yzm{
+    width: 350rpx;
+}
+.text_primay{
+    color: #007bff;
+    font-size: 28rpx;
+    border: none;
+    background: #fff;
+    width: 200rpx;
+}
+.text_primay::after{
+    border: 0;
+}

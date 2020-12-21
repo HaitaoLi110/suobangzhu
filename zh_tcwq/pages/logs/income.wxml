@@ -8,16 +8,7 @@
     </view>
 </view>
 <view class="income font">
-    <!-- <view class="income_header" style="background:{{System.color}}">
-        <view>可提现（元）</view>
-        <view class="income_flex">
-            <view class="cash">{{money}}</view>
-            <view bindtap="cash" class="income_go">
-                <view>去提现</view>
-                <image src="../image/baise.png"></image>
-            </view>
-        </view>
-    </view> -->
+   
     <view class="refer">
         <view bindtap="detailed3" class="refer_flex">
             <view>交易记录</view>
@@ -27,12 +18,5 @@
             </view>
         </view>
     </view>
-    <view bindtap="detailed2" class="refer">
-        <view class="refer_flex2">
-            <view>{{System.hb_name}}明细</view>
-            <view class="refer_right">
-                <image class="right_img" src="../image/huise@2x.png"></image>
-            </view>
-        </view>
-    </view>
+   
 </view>

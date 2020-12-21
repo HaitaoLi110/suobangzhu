@@ -13,12 +13,70 @@ Page({
         money1: 0,
         countries: [ "本地", "全国" ],
         countryIndex: 0,
-        radiochecked: !0
+        radiochecked: !0,
+        tel:'',
+        codename:'获取验证码'
     },
     checkboxChange: function(e) {
         this.setData({
             radiochecked: !this.data.radiochecked
         });
+    },
+    messageChangtel:function(e){
+        // 获取输入框当前value值
+    let value = e.detail.value
+
+    // 及时更新数据
+    this.setData({
+      tel: value
+    })
+    },
+    getPhone_Sms:function(e){
+        let that = this;
+        app.util.request({
+            url: "entry/wxapp/Phone_Sms",
+            cachetime: "0",
+            data: {
+                openid:wx.getStorageSync("openid"),
+                tel:that.data.tel
+
+            },
+            success: function(e) {
+                console.log(e)
+                
+                wx.showToast({
+                    icon:"none",
+                    title: "验证码发送"+e.data.info
+                });
+                if(e.data.code == 200){
+                    that.setData({
+                    iscode: e.data.data
+                  });
+                  var num = 61;
+                  var timer = setInterval(function () {
+                    num--;
+                    if (num <= 0) {
+                      clearInterval(timer);
+                      that.setData({
+                        codename: '重新发送',
+                        disabled: false
+                      })
+          
+                    } else {
+                        that.setData({
+                        codename: num + "s"
+                      })
+                    }
+                  }, 1000)
+            
+                }
+                },
+            fail:function(e){
+                wx.showToast({
+                    title: e.data.info
+                });
+            }
+        })
     },
     bindCountryChange: function(e) {
         var t = this.data.zdindex, a = this.data.stick;
@@ -284,7 +342,7 @@ Page({
     },
     formSubmit: function(e) {
         if (console.log("这是保存formid2"), console.log(e), app.util.request({
-            url: "entry/wxapp/SaveFormid",
+            url: "entry/wxapp/Posting",
             cachetime: "0",
             data: {
                 user_id: wx.getStorageSync("users").id,
@@ -338,7 +396,9 @@ Page({
                 }
                 1 == T ? (q = e.detail.value.welfare_pass, z = 2) : z = 1;
             } else v = v;
-            if ("" == y ? k = "内容不能为空" : 540 <= y.length ? k = "内容超出了" : "" == g ? k = "姓名不能为空" : "" == f ? k = "电话不能为空" : 1 == D && ("" == N ? k = t.data.System.hb_name + "金额不能为空" : !t.data.checked_average && N < 1 ? k = t.data.System.hb_name + "金额不能小于1元" : "" == C ? k = t.data.System.hb_name + "个数不能为空" : O < .1 ? k = t.data.System.hb_name + "份数过大，请合理设置" : t.data.checked_average && N < .1 ? k = "单个" + t.data.System.hb_name + "最小金额不能小于0.1元" : 1 == T && ("" == q ? k = "口令不能为空" : I.test(q) || (k = "口令只能输入汉字"))), 
+            var code = e.detail.value.code;
+           
+            if ("" == y ? k = "内容不能为空" : 540 <= y.length ? k = "内容超出了" : "" == g ? k = "姓名不能为空" : "" == code ? k = "验证码不能为空" : "" ? k = "电话不能为空" : 1 == D && ("" == N ? k = t.data.System.hb_name + "金额不能为空" : !t.data.checked_average && N < 1 ? k = t.data.System.hb_name + "金额不能小于1元" : "" == C ? k = t.data.System.hb_name + "个数不能为空" : O < .1 ? k = t.data.System.hb_name + "份数过大，请合理设置" : t.data.checked_average && N < .1 ? k = "单个" + t.data.System.hb_name + "最小金额不能小于0.1元" : 1 == T && ("" == q ? k = "口令不能为空" : I.test(q) || (k = "口令只能输入汉字"))), 
             "" != k) wx.showModal({
                 title: "提示",
                 content: k,
@@ -362,6 +422,7 @@ Page({
                         user_id: b,
                         user_name: g,
                         user_tel: f,
+                        code:e.detail.value.code,
                         type2_id: x,
                         type_id: _,
                         money: v,
