@@ -126,7 +126,14 @@ Page({
 					return false;
 				}
 			
-					var t = e.data.data[0];
+                    var t = e.data.data[0];
+                    if(!t){
+                        wx.showToast({
+                            icon:"none",
+                            title: "无数据"
+                        });
+                        return false;
+                    }
                 null == t.img ? t.type = 1 : t.type = 2;
                 var a = l, o = t.time.replace(/-/g, "/"), n = /(\d{4})-(\d{1,2})-(\d{1,2})( \d{1,2}:\d{1,2})/g, s = Math.abs(Date.parse(a.replace(n, "$2-$3-$1$4")) - Date.parse(o.replace(n, "$2-$3-$1$4"))) / 1e3, i = Math.floor(s / 3600), c = Math.floor(s % 3600 / 60);
                 t.m = Number(i), t.h = Number(c), console.log(i + " 小时 " + c + " 分钟"), console.log(l), 
