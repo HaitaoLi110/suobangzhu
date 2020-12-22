@@ -39,7 +39,9 @@ Page({
 		areas: [],
 		province: '',
 		city: '',
-		area: ''
+		area: '',
+		tel:'',
+		codename:'获取验证码'
 
 
 	},
@@ -87,7 +89,62 @@ Page({
 	})
 	console.log(this.data)
 	},
+	messageChangtel:function(e){
+	    // 获取输入框当前value值
+		let value = e.detail.value
+		
+		// 及时更新数据
+		this.setData({
+		  user_tel: value
+		})
+	},
+   getPhone_Sms:function(e){
+        let that = this;
+        app.util.request({
+            url: "entry/wxapp/Phone_Sms",
+            cachetime: "0",
+            data: {
+                openid:wx.getStorageSync("openid"),
+                tel:that.data.user_tel
 
+            },
+            success: function(e) {
+                console.log(e)
+                
+                wx.showToast({
+                    icon:"none",
+                    title: "验证码发送"+e.data.info
+                });
+                if(e.data.code == 200){
+                    that.setData({
+                    iscode: e.data.data
+                  });
+                  var num = 61;
+                  var timer = setInterval(function () {
+                    num--;
+                    if (num <= 0) {
+                      clearInterval(timer);
+                      that.setData({
+                        codename: '重新发送',
+                        disabled: false
+                      })
+          
+                    } else {
+                        that.setData({
+                        codename: num + "s"
+                      })
+                    }
+                  }, 1000)
+            
+                }
+                },
+            fail:function(e){
+                wx.showToast({
+                    title: e.data.info
+                });
+            }
+        })
+    },
 	delete: function(e) {
 	      console.log(this.data), console.log(imgArray), Array.prototype.indexOf = function(e) {
 	          for (var t = 0; t < this.length; t++) if (this[t] == e) return t;
@@ -261,6 +318,13 @@ Page({
 				return;
 			}
 		}
+		if(!code.length){
+			wx.showToast({
+				title: '请输入验证码',
+				icon: 'none'
+			});
+			return;
+		}
 		that.setData({
 			companyimg:that.data.upload_img,
 			chanpinimg:that.data.images
@@ -274,6 +338,7 @@ Page({
 				county: '县',
 				diqu:e.detail.value.diqu,
 				user_tel:u_tel,
+				code:e.detail.value.code,
 				zhuying: e.detail.value.zhuying,
 				company: e.detail.value.company,
 				introduce: e.detail.value.introduce,

@@ -32,7 +32,7 @@
         <view class="banner_list2 border  flex-center" wx:if="{{tel}}">
             <view class="banner_name">验证码：</view>
             <input class="banner_text banner_text_yzm" name="code" placeholder="验证码" placeholderStyle="color:#999;font-size:28rpx; " type="number"></input>
-            <button bindtap="getPhone_Sms" class="text_primay">{{codename}}</button>
+            <button bindtap="getPhone_Sms" class="btn_primay">{{codename}}</button>
         </view>
         <view class="banner_list3 flex-center" wx:if="{{System.is_tzdz=='1'}}">
             <view class="banner_name">具体位置</view>

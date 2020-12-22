@@ -27,7 +27,14 @@
 		<view class="line">
 			<view class="label"><text>*</text>手机号：</view>
 			<view class="oper">
-				<input type="number" class="" name="user_tel" value="{{user_tel}}" />
+				<input type="number" class="" name="user_tel" bindinput="messageChangtel" value="{{user_tel}}" />
+			</view>
+		</view>
+		<view class="line">
+			<view class="label"><text>*</text>验证码：</view>
+			<view class="oper">
+				<input class="banner_text_yzm" name="code" placeholder="验证码" placeholderStyle="color:#999;font-size:28rpx; " type="number"></input>
+				<button bindtap="getPhone_Sms" class="btn_primay">{{codename}}</button>
 			</view>
 		</view>
 		<view class="line">

@@ -167,3 +167,20 @@
   margin-right: 5rpx;
   text-align: center;
 }
+.banner_text_yzm{
+	width: 60%;
+	float: left;
+}
+.btn_primay{
+	border: none;
+	width: 200rpx;
+	padding: 0rpx 23rpx;
+	border-radius: 8rpx;
+	font-size: 28rpx;
+	color: #fff;
+	background: #ED414A;
+	float: left;
+}
+.btn_primay::after{
+	border: 0;
+}

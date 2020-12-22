@@ -278,15 +278,17 @@
     padding-top: 20rpx;
 }
 .banner_text_yzm{
-    width: 350rpx;
+    width: 300rpx;
 }
-.text_primay{
-    color: #007bff;
-    font-size: 28rpx;
+.btn_primay{
     border: none;
-    background: #fff;
     width: 200rpx;
+	padding: 0 23rpx;
+	border-radius: 8rpx;
+	font-size: 28rpx;
+	color: #fff;
+	background: #ED414A;
 }
-.text_primay::after{
+.btn_primay::after{
     border: 0;
 }
