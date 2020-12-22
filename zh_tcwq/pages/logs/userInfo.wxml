@@ -40,14 +40,13 @@
 		<view class="line">
 			<view class="label"><text>*</text>行业：</view>
 			<view class="oper">
-				<checkbox-group name="zhuying">
-					<block wx:for="{{hangye}}" wx:key="item">
+				<checkbox-group name="zhuying" bindchange="checkboxChange">
+					<block wx:for="{{zhuying}}" wx:key="item">
 						<label class="user_checkbox">
-							<checkbox value="checkbox1" />{{item}}</label>
+							<checkbox value="{{item}}" />{{item}}</label>
 					</block>
 
 				</checkbox-group>
-				<!-- <input type="text" class=""  name="zhuying" value="{{zhuying}}"/> -->
 			</view>
 		</view>
 		<view class="line">
@@ -94,7 +93,7 @@
 		</view>
 	</view>
 	<view class="btn-area">
-	<button style="margin: 30rpx 0" type="primary" formType="submit">完成</button>
+	<button style="margin: 30rpx 15rpx" type="primary" formType="submit">完成</button>
 </view>
 </form>
 

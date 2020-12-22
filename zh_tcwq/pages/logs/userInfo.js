@@ -68,7 +68,8 @@ Page({
 				
 				that.setData({
 					upload_img:that.data.companyimg,
-					images:that.data.chanpinimg
+					images:that.data.chanpinimg,
+					
 				})
 			}
 		});
@@ -298,6 +299,7 @@ Page({
 		let msg = e.detail.value;
 		let users = wx.getStorageSync("users");
 		let u_tel = e.detail.value.user_tel;
+		var code =e.detail.value.code
 		if(u_tel.length>0){
 			if (u_tel.length == 11) {
 				var myreg = /^1\d{10}$/;
@@ -337,9 +339,10 @@ Page({
 				city: '市',
 				county: '县',
 				diqu:e.detail.value.diqu,
+				diquXX:e.detail.value.diquXX,
 				user_tel:u_tel,
-				code:e.detail.value.code,
-				zhuying: e.detail.value.zhuying,
+				code:code,
+				zhuying: that.data.zhuying,
 				company: e.detail.value.company,
 				introduce: e.detail.value.introduce,
 				companyimg:that.data.companyimg,
@@ -348,7 +351,7 @@ Page({
 			success: function(e) {
 				console.log(e), that.setData(e.info);
 				wx.showToast({
-					title: '提交成功',
+					title: e.data.msg,
 					duration: 1000
 				})
 			}
@@ -361,7 +364,15 @@ Page({
 	onReady: function() {
 
 	},
-
+checkboxChange:function(e){
+	 console.log('checkbox发生change事件，携带value值为：', e.detail.value)
+	
+	
+	    this.setData({
+	      zhuying:e.detail.value
+	    })
+	  
+},
 	/**
 	 * 生命周期函数--监听页面显示
 	 */

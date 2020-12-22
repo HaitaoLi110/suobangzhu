@@ -20,11 +20,31 @@ Page({
 	    success: function(e) {
 	       var list = e.data;
 		   that.setData({
-			   list:list
+			   list:list,
+			   currentTab:list[0].id,
+			   user_name:wx.getStorageSync("users").name
 		   })
 	    }
 	});
   },
+  //  tab切换逻辑
+      swichNav: function( e ) {
+          var that = this;
+          if( that.data.currentTab === e.target.dataset.current ) {
+              return false;
+          } else {
+              that.setData( {
+                  currentTab: e.target.dataset.current
+              })
+          }
+      },
+  
+      bindChange: function( e ) {
+  
+          var that = this;
+          that.setData( { currentTab: e.detail.current });
+  
+      },
 	groupid:function(e){
 		var that = this;
 		var id = e.currentTarget.id;
