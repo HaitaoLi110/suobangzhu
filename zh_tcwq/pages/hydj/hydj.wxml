@@ -7,4 +7,12 @@
 		<text>{{item.title}}</text><text>{{ item.sj }}</text><text>{{ item.price}}</text>
 	</view>
 	</block>
+	
+	<view> 开通账号：{{user_name}}</view>
+	<block wx:for="{{list}}" wx:key="item">
+		<view class="swiper-tab">
+		    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="groupid">{{ item.sj }}</view>
+		</view>
+	</block>
+	<button type="default">去支付</button>
 </view>
