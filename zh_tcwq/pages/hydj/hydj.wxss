@@ -28,6 +28,7 @@
     width: 65%;
     text-align: center;
     line-height: 80rpx;
+	position:relative;
 }
 .swiper-tab-list{  
 	font-size: 30rpx;
@@ -65,7 +66,17 @@
 .btn_go{
 	background:#f93535 ;
 	color: #fff;
-	margin: 0 30rpx;
+	margin: 100rpx 30rpx 0;
 	border-color: #f93535;
 	
+}
+.swp_hide{
+	display: none;
+}
+.on  .swp_hide{
+	display: inline-block;
+	position: absolute;
+	top: 112rpx;
+	left: 0;
+	color: #333;
 }

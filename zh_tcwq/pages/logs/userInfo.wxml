@@ -41,9 +41,12 @@
 			<view class="label"><text>*</text>行业：</view>
 			<view class="oper">
 				<checkbox-group name="zhuying" bindchange="checkboxChange">
-					<block wx:for="{{zhuying}}" wx:key="item">
-						<label class="user_checkbox">
-							<checkbox value="{{item}}" />{{item}}</label>
+					<block wx:for="{{hangye}}" wx:key="item">
+						
+							<label class="user_checkbox">
+								<checkbox value="{{item}}" />{{item}}</label>
+						
+						
 					</block>
 
 				</checkbox-group>

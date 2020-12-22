@@ -64,13 +64,28 @@ Page({
 				openid: openid
 			},
 			success: function(e) {
-				console.log(e), that.setData(e.data.info);
+				var zhuying = e.data.info.zhuying;
+				zhuying = zhuying.replace(/&quot;/g," ");
+				zhuying = zhuying.replace(/\[|]/g,'').split(',');
+				that.setData(e.data.info);
+				var hangye = that.data.hangye
+				for(var i = 0 ; i<hangye.length;i++){
+					for(var a=0; a<zhuying.length; a++){
+						if(zhuying[a] == hangye[i]){
+							hangye[i]['checked'] =true;
+						}
+					}
+				}
+				
 				
 				that.setData({
 					upload_img:that.data.companyimg,
 					images:that.data.chanpinimg,
+					hangye:hangye
 					
 				})
+				console.log(that.data.hangye)
+				
 			}
 		});
 

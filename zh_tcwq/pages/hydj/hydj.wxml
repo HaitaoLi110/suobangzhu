@@ -1,32 +1,26 @@
 <view class="cpncent">
-	<view class="item_info item_info_header" >
-		<text>等级名称</text><text>时间(天)</text><text>价格</text>
-	</view>
-	<block wx:for="{{list}}" wx:key="item">
-	<view class="item_info"  bindtap="groupid" id="{{item.id}}" data-price="{{item.price}}">
-		<text>{{item.title}}</text><text>{{ item.sj }}</text><text>{{ item.price}}</text>
-	</view>
-	</block>
 	
 	<view class="item_info"> <text class="t_label">开通会员用户名：</text>{{user_name}}</view>
-	<view class="item_info"><text  class="t_label">开通市场：</text>
+	<view class="item_info"><text  class="t_label">开通时长：</text>
 		<view class="swiper-tab">
 			<block wx:for="{{list}}" wx:key="item">
-				<view class="swiper-tab-list {{currentTab==item.id ? 'on' : ''}}" data-current="{{item.id}}"  bindtap="swichNav">{{ item.sj }}</view>
+				<view class="swiper-tab-list {{currentTab==item.id ? 'on' : ''}}" data-current="{{item.id}}" data-price="{{item.price}}"  bindtap="swichNav">{{ item.sj }}
+				
+				<text class="swp_hide">{{item.price}}</text>
+				</view>
+			
 			</block>
 		</view>
 	</view>
-	<view class="item_info"><text  class="t_label">开通市场：</text>
-		<view current="{{currentTab}}" class="swiper-box" >
-			<block wx:for="{{list}}" wx:key="item">
-				
-					<view wx:if="{{currentTab == item.id}}">{{ item.price}}{{item.id}}</view>
-				
+	<view class="item_info"><text  class="t_label">价格：</text>
+		<!-- <view current="{{currentTab}}" class="swiper-box" >
+			<block wx:for="{{listprice}}" wx:key="ab" >
+				<view hidden wx:show="{{currentTab == ab.id}}">{{ab.price}}</view>
 			</block>
-		</view>
+		</view> -->
 	</view>	
 	
 		
 	
-	<button type="default"  class="btn_go">去支付</button>
+	<button   class="btn_go" bindtap="groupid">去支付</button>
 </view>

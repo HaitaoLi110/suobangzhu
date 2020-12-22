@@ -21,6 +21,7 @@ Page({
 	       var list = e.data;
 		   that.setData({
 			   list:list,
+			   listprice:list,
 			   currentTab:list[0].id,
 			   user_name:wx.getStorageSync("users").name
 		   })
@@ -34,7 +35,8 @@ Page({
               return false;
           } else {
               that.setData( {
-                  currentTab: e.target.dataset.current
+                  currentTab: e.target.dataset.current,
+				  price: e.target.dataset.price
               })
           }
       },
@@ -47,15 +49,14 @@ Page({
       },
 	groupid:function(e){
 		var that = this;
-		var id = e.currentTarget.id;
 		var  openid = wx.getStorageSync("openid");
-		var moneys = e.currentTarget.dataset.price;
+		var moneys = that.data.price;
 		var user_id = wx.getStorageSync("users").id
 		app.util.request({
 		    url: "entry/wxapp/UserGroupPay",
 			data:{
 				openid:openid,
-				groupid:id
+				groupid:that.data.currentTab
 			},
 		    success: function(e) {
 		       if (console.log("付费刷新"), that.data.isios && "2" == that.data.System.is_pgzf) return void wx.showModal({
