@@ -1,6 +1,6 @@
 <view class="cpncent">
 	
-	<view class="item_info"> <text class="t_label">开通会员用户名：</text>{{user_name}}</view>
+	<view class="item_info"> <text class="t_label">会员用户名：</text>{{user_name}}</view>
 	<view class="item_info"><text  class="t_label">开通时长：</text>
 		<view class="swiper-tab">
 			<block wx:for="{{list}}" wx:key="item">
@@ -13,11 +13,7 @@
 		</view>
 	</view>
 	<view class="item_info"><text  class="t_label">价格：</text>
-		<!-- <view current="{{currentTab}}" class="swiper-box" >
-			<block wx:for="{{listprice}}" wx:key="ab" >
-				<view hidden wx:show="{{currentTab == ab.id}}">{{ab.price}}</view>
-			</block>
-		</view> -->
+		
 	</view>	
 	
 		

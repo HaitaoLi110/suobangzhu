@@ -1,27 +1,11 @@
 /* zh_tcwq/pages/hydj/hydj.wxss */
 .item_info{
-	padding: 15rpx;
+	padding:25rpx 15rpx;
 	background-color: #fff;
 	display: flex;
 	margin-bottom: 15rpx;
 	align-items: center;
 }
-/* .item_info::after{
-	content: ">";
-} */
-/* .item_info text{
-	flex: 1;
-	margin-right: 10rpx;
-}
-.item_info text:last-child{
-	margin-right: 0;
-}
-.item_info_header::after{
-	content: '';
-}
-.item_info_header{
-	margin-bottom: 0;
-} */
 
 .swiper-tab{
 	display: inline-block;
@@ -60,15 +44,16 @@
 	line-height: 80rpx;
 	 width: 100%;
 	 overflow: hidden; }
-.swiper-box view{
-    /* text-align: center; */
-}
+
 .btn_go{
+	position: fixed;
 	background:#f93535 ;
 	color: #fff;
-	margin: 100rpx 30rpx 0;
+	margin: 160rpx auto 0;
 	border-color: #f93535;
-	
+	bottom: 20px;
+	left: 50px;
+	right: 50px;
 }
 .swp_hide{
 	display: none;
@@ -76,7 +61,7 @@
 .on  .swp_hide{
 	display: inline-block;
 	position: absolute;
-	top: 112rpx;
-	left: 0;
+	top: 135rpx;
+	left: 25rpx;
 	color: #333;
 }
