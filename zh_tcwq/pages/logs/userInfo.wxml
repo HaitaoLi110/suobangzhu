@@ -42,11 +42,8 @@
 			<view class="oper">
 				<checkbox-group name="zhuying" bindchange="checkboxChange">
 					<block wx:for="{{hangye}}" wx:key="item">
-						
 							<label class="user_checkbox">
-								<checkbox value="{{item}}" />{{item}}</label>
-						
-						
+								<checkbox value="{{item.name}}" checked="{{item.checked ? true:''}}"/>{{item.name}}</label>	
 					</block>
 
 				</checkbox-group>

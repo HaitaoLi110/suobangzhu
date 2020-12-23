@@ -51,7 +51,8 @@ Page({
 		var that = this;
 		var  openid = wx.getStorageSync("openid");
 		var moneys = that.data.price;
-		var user_id = wx.getStorageSync("users").id
+		var user_id = wx.getStorageSync("users").id;
+		var id =that.data.currentTab;
 		app.util.request({
 		    url: "entry/wxapp/UserGroupPay",
 			data:{

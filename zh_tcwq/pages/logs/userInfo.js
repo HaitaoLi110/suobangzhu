@@ -24,7 +24,7 @@ Page({
 		upload_img: [],
 		images: [],
 		lunbo_len: 0,
-		hangye:["再生PET","再生颗粒","设备商","物资","其它"],
+		hangye:[{"name":"再生PET"},{"name":"再生颗粒"},{"name":"设备商"},{"name":"物资"},{"name":"其它"}],
 		menuType: 0,
 		begin: null,
 		status: 1,
@@ -65,23 +65,27 @@ Page({
 			},
 			success: function(e) {
 				var zhuying = e.data.info.zhuying;
-				zhuying = zhuying.replace(/&quot;/g," ");
+				zhuying = zhuying.replace(/&quot;/g,"");
 				zhuying = zhuying.replace(/\[|]/g,'').split(',');
 				that.setData(e.data.info);
-				var hangye = that.data.hangye
-				for(var i = 0 ; i<hangye.length;i++){
-					for(var a=0; a<zhuying.length; a++){
-						if(zhuying[a] == hangye[i]){
-							hangye[i]['checked'] =true;
+				//var hangye = that.data.hangye;
+				let items = that.data.hangye;
+				let values = zhuying;
+				for (let i = 0, lenI = items.length; i < lenI; ++i) {
+					 items[i].checked = false;
+					for (let j = 0, lenJ = values.length; j < lenJ; ++j) {
+						if (items[i].name == values[j]) {
+							items[i].checked = true
+							break
 						}
 					}
 				}
 				
 				
 				that.setData({
-					upload_img:that.data.companyimg,
-					images:that.data.chanpinimg,
-					hangye:hangye
+					"upload_img":that.data.companyimg,
+					"images":that.data.chanpinimg,
+					 "hangye":items
 					
 				})
 				console.log(that.data.hangye)
@@ -382,9 +386,20 @@ Page({
 checkboxChange:function(e){
 	 console.log('checkbox发生change事件，携带value值为：', e.detail.value)
 	
-	
+	    const items = this.data.hangye
+	     const values = e.detail.value
+	     for (let i = 0, lenI = items.length; i < lenI; ++i) {
+	        items[i].checked = false
+	       for (let j = 0, lenJ = values.length; j < lenJ; ++j) {
+	         if (items[i].name === values[j]) {
+	           items[i].checked = true
+	           break
+	         }
+	       }
+	     }
+		 console.log(items)
 	    this.setData({
-	      zhuying:e.detail.value
+	      zhuying:items
 	    })
 	  
 },
@@ -406,7 +421,7 @@ checkboxChange:function(e){
 	 * 生命周期函数--监听页面卸载
 	 */
 	onUnload: function() {
-
+		 wx.offAccelerometerChange()
 	},
 
 	/**
