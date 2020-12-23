@@ -1,7 +1,8 @@
 {
   "pages": [
+    "zh_tcwq/pages/logs/userInfo",
 	   "zh_tcwq/pages/hydj/hydj",
-	  "zh_tcwq/pages/logs/userInfo",
+	  
 	   "zh_tcwq/pages/logs/logs",
 	  
 	 

@@ -361,7 +361,7 @@ Page({
 				diquXX:e.detail.value.diquXX,
 				user_tel:u_tel,
 				code:code,
-				zhuying: that.data.zhuying,
+				zhuying: e.detail.value.zhuying,
 				company: e.detail.value.company,
 				introduce: e.detail.value.introduce,
 				companyimg:that.data.companyimg,
