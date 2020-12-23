@@ -65,8 +65,10 @@ Page({
 			},
 			success: function(e) {
 				var zhuying = e.data.info.zhuying;
-				zhuying = zhuying.replace(/&quot;/g,"");
+				if(zhuying){
+					zhuying = zhuyingzhuying.replace(/&quot;/g,"");
 				zhuying = zhuying.replace(/\[|]/g,'').split(',');
+				}
 				that.setData(e.data.info);
 				//var hangye = that.data.hangye;
 				let items = that.data.hangye;
