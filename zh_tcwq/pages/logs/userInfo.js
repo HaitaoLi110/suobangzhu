@@ -65,29 +65,31 @@ Page({
 			},
 			success: function(e) {
 				var zhuying = e.data.info.zhuying;
-				if(zhuying){
-					zhuying = zhuyingzhuying.replace(/&quot;/g,"");
-				zhuying = zhuying.replace(/\[|]/g,'').split(',');
-				}
 				that.setData(e.data.info);
-				//var hangye = that.data.hangye;
-				let items = that.data.hangye;
-				let values = zhuying;
-				for (let i = 0, lenI = items.length; i < lenI; ++i) {
-					 items[i].checked = false;
-					for (let j = 0, lenJ = values.length; j < lenJ; ++j) {
-						if (items[i].name == values[j]) {
-							items[i].checked = true
-							break
+				if(!zhuying){
+					zhuying = zhuyingzhuying.replace(/&quot;/g,"");
+					zhuying = zhuying.replace(/\[|]/g,'').split(',');
+					let items = that.data.hangye;
+					let values = zhuying;
+					for (let i = 0, lenI = items.length; i < lenI; ++i) {
+						 items[i].checked = false;
+						for (let j = 0, lenJ = values.length; j < lenJ; ++j) {
+							if (items[i].name == values[j]) {
+								items[i].checked = true
+								break
+							}
 						}
 					}
+					that.setData({
+						
+						 "hangye":items
+						
+					})
 				}
-				
 				
 				that.setData({
 					"upload_img":that.data.companyimg,
-					"images":that.data.chanpinimg,
-					 "hangye":items
+					"images":that.data.chanpinimg
 					
 				})
 				console.log(that.data.hangye)
@@ -341,12 +343,16 @@ Page({
 				return;
 			}
 		}
-		if(!code.length){
-			wx.showToast({
-				title: '请输入验证码',
-				icon: 'none'
-			});
-			return;
+		var k="";
+		if( "" == code ? k = "请输入验证码"  : "" == e.detail.value.zhuying ? k = "请选择行业信息" : "" == e.detail.value.diqu ? k = "地区不能为空" :  "" == e.detail.value.diquXX ? k = "详细地址不能为空" :''){
+			wx.showModal({
+					title: "提示",
+					content: k,
+					success: function(e) {},
+					fail: function(e) {},
+					complete: function(e) {}
+				});
+				return
 		}
 		that.setData({
 			companyimg:that.data.upload_img,

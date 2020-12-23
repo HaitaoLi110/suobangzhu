@@ -15,7 +15,7 @@
 		<view class="line">
 			<view class="label"><text>*</text>地区：</view>
 			<view class="oper">
-				<input type="text" class="" name="diqu" placeholder="请选择地区" value="{{diqu}}" bindtap="selectDistrict" />
+				<input type="text" class="" name="diqu" placeholder="请选择地区" value="{{areaInfo}}" bindtap="selectDistrict" />
 			</view>
 		</view>
 		<view class="line">
