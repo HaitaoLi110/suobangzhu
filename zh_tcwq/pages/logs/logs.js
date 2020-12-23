@@ -135,7 +135,25 @@ Page({
         });
 		e.tuiSong()
 		
-	
+	//获取会员状态
+	var e = this;
+	var openid = wx.getStorageSync("openid")
+	//获取会员状态
+	app.util.request({
+	    url: "entry/wxapp/UserGroupInfo",
+	    cachetime: "30",
+	    data: {
+	        openid: openid
+	    },
+	    success: function(t) {
+			if(t.data.title){
+				e.setData({
+					groupid:t.data.title
+				})
+			}
+			
+		}
+	})
 		
     },
     collection: function(t) {

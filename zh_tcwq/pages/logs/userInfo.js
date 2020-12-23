@@ -66,8 +66,8 @@ Page({
 			success: function(e) {
 				var zhuying = e.data.info.zhuying;
 				that.setData(e.data.info);
-				if(!zhuying){
-					zhuying = zhuyingzhuying.replace(/&quot;/g,"");
+				if(zhuying.length>0){
+					zhuying = zhuying.replace(/&quot;/g,"");
 					zhuying = zhuying.replace(/\[|]/g,'').split(',');
 					let items = that.data.hangye;
 					let values = zhuying;
