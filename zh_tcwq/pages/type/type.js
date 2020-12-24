@@ -378,7 +378,7 @@ Page((_defineProperty(_Page = {
         seller: [],
         index_class: !1
     }), this.seller();
-}), _defineProperty(_Page, "bindinput", function(t) {
+}), _defineProperty(_Page, "bindinput1", function(t) {
     var e = t.detail.value;
     "" != e && app.util.request({
         url: "entry/wxapp/list2",
@@ -396,12 +396,13 @@ Page((_defineProperty(_Page = {
                 success: function(t) {},
                 fail: function(t) {},
                 complete: function(t) {}
-            }) : wx.navigateTo({
-                url: "../infodetial/infodetial?id=" + t.data[0].tz.id,
-                success: function(t) {},
-                fail: function(t) {},
-                complete: function(t) {}
-            });
+            }) : ""
+			// wx.navigateTo({
+   //              url: "../infodetial/infodetial?id=" + t.data[0].tz.id,
+   //              success: function(t) {},
+   //              fail: function(t) {},
+   //              complete: function(t) {}
+   //          });
         }
     });
 }), _defineProperty(_Page, "ormatDate", function(t) {

@@ -1,12 +1,12 @@
 <include src="/zh_tcwq/pages/car/navbar.wxml"></include>
 <view class="big_border pbnavbar">
 	<view class="searchbox">
-	    <input bindinput="bindinput" class="input" placeholder="请输入您要查询的关键词" style="border:5rpx solid {{System.color}}"></input>
+	    <input bindinput="bindinput" class="input" placeholder="请输入您要查询的关键词" value="{{value}}" style="border:5rpx solid {{System.color}}"></input>
 	    <button bindtap="search" class="search" style="background:{{System.color}}">搜索</button>
 	    <view class="ssjg" wx:if="{{djss}}">
-	        <scroll-view scrollY="true" style="height:450rpx;">
+	        <scroll-view scrollY="true">
 	            <view bindtap="store" data-id="{{item.id}}" wx:if="{{ssjgarr.length>0}}" wx:for="{{ssjgarr}}">{{item.store_name}}</view>
-	            <view wx:if="{{ssjgarr.length==0}}">暂无符合你搜索的厂家~</view>
+	            <view wx:if="{{ssjgarr.length==0}}">暂无符合你搜索的条件~</view>
 	        </scroll-view>
 	        <button bindtap="sqss" style="background:{{System.color}}">收起</button>
 	    </view>

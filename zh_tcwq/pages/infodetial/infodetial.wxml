@@ -60,16 +60,7 @@
         <button class="zan_button ab" formType="submit"></button>
             </view>
         </form>
-		<!-- 点赞显示 -->
-        <!-- <view class="portrait flex2">
-            <view class="portrait_one flex3">
-                <text>{{post.givelike}}</text>
-                <text>赞</text>
-            </view>
-            <view class="portrait_one flex3" wx:for="{{dianzan}}" wx:key="*this">
-                <image class="portrait_img" src="{{item.user_img}}"></image>
-            </view>
-        </view> -->
+		
     </view>
 </view>
 
@@ -132,7 +123,7 @@
             <button formType="submit"></button>
         </form>
     </view>
-    <view bindtap="comment" class="nav_phone rel" style="background:{{system.color}}" >
+    <view bindtap="phone" class="nav_phone rel" style="background:{{system.color}}" >
         <view>打电话</view>
         <form bindreset="formReset" bindsubmit="formid_one" class="plate_form" reportSubmit="true">
             <button formType="submit"></button>

@@ -240,6 +240,7 @@ Page({
                     label: t.data.label,
                     alreadyCharge: c
                 });
+				
             }
         });
     },
