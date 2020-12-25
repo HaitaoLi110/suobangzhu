@@ -65,11 +65,13 @@
 			<view class="label">公司图片：</view>
 			<view class="">
 				<input value="{{upload_img}}" style="display: none;" name='companyimg' />
-				<view class="carousel_img1 rel" wx:if="{{upload_img.length>0}}" wx:for="{{upload_img}}">
+				
+				<view class="carousel_img1 rel" wx:if="{{upload_img.length>0}}" wx:for="{{upload_img}}" wx:key="*">
 					<view bindtap="delete2" class="delete ab" data-index="{{index}}">
 						<image class="ab" mode="aspectFill" src="../image/delete.png"></image>
 					</view>
-					<image class="ab udlr" data-index="{{index}}" mode="aspectFill" src="{{item}}"></image>
+				
+					<image class="ab udlr" data-index="{{index}}" mode="aspectFill" wx:if="{{item}}" src="{{ url_img}}{{item}}"></image>
 				</view>
 				<view bindtap="upload_image" class="carousel_img2 rel" style="border:2rpx solid #ccc;">
 					<image class="ab udlr" src="../image/add.png"></image>
@@ -84,7 +86,7 @@
 					<view bindtap="delete" class="delete ab" data-index="{{index}}">
 						<image class="ab" mode="aspectFill" src="../image/delete.png"></image>
 					</view>
-					<image class="ab udlr" data-index="{{index}}" mode="aspectFill" src="{{item}}"></image>
+					<image class="ab udlr" data-index="{{index}}" mode="aspectFill" wx:if="{{item}}" src="{{url_img}}{{item}}"></image>
 				</view>
 				<view bindtap="chooseImage2" class="carousel_img2 rel" style="border:2rpx solid #ccc;">
 					<image class="ab udlr" src="../image/add.png"></image>

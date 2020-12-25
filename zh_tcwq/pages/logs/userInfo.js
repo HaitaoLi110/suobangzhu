@@ -55,8 +55,10 @@ Page({
 		let users = wx.getStorageSync("users");
 		let openid = wx.getStorageSync("openid");
 		var t = wx.getStorageSync("url2");
+		var tImg = wx.getStorageSync("url");
 		that.setData({
-			url: t
+			url: t,
+			url_img:tImg
 		})
 		app.util.request({
 			url: "entry/wxapp/Userxx",
@@ -88,8 +90,10 @@ Page({
 				}
 				
 				that.setData({
-					"upload_img":that.data.companyimg,
-					"images":that.data.chanpinimg
+					"uploaded":e.data.info.companyimg,
+					"upload_img":e.data.info.companyimg,
+					"images":e.data.info.chanpinimg,
+					"imgArray":e.data.info.chanpinimg,
 					
 				})
 				console.log(that.data.hangye)
@@ -219,6 +223,7 @@ Page({
 	      });
 	  },
 	  uploadimg: function(e) {
+		 
 	      var t = this, a = e.i ? e.i : 0, o = e.success ? e.success : 0, n = e.fail ? e.fail : 0;
 	      wx.uploadFile({
 	          url: e.url,
@@ -226,7 +231,9 @@ Page({
 	          name: "upfile",
 	          formData: null,
 	          success: function(e) {
-	              "" != e.data ? (console.log(e), o++, imgArray.push(e.data), console.log(a), console.log("上传厂家轮播图时候提交的图片数组", imgArray)) : wx.showToast({
+	              "" != e.data ? (console.log(e), o++, imgArray.push(e.data), console.log(a), t.setData({
+	                    imgArray: imgArray
+	                }), console.log("上传厂家轮播图时候提交的图片数组", imgArray)) : wx.showToast({
 	                  icon: "loading",
 	                  title: "请重试"
 	              });
@@ -234,9 +241,12 @@ Page({
 	          fail: function(e) {
 	              n++, console.log("fail:" + a + "fail:" + n);
 	          },
-	          complete: function() {
+	          complete: function(ea) {
+				  var  imgArray = ea.data?t.data.chanpinimg.concat(ea.data):t.data.chanpinimg;
 	              console.log(a), ++a == e.path.length ? (t.setData({
-	                  images: e.path
+	                  //images: e.path
+	                  images: imgArray,
+					  chanpinimg:imgArray
 	              }), wx.hideToast(), console.log("执行完毕"), console.log("成功：" + o + " 失败：" + n)) : (console.log(a), 
 	              e.i = a, e.success = o, e.fail = n, t.uploadimg(e));
 	          }
@@ -297,6 +307,7 @@ Page({
 	            name: "upfile",
 	            formData: null,
 	            success: function(e) {
+					
 	                "" != e.data ? (console.log(e), o++, uploaded.push(e.data), t.setData({
 	                    uploaded: uploaded
 	                }), console.log(a), console.log("上传厂家介绍时候提交的图片数组", uploaded)) : wx.showToast({
@@ -307,9 +318,11 @@ Page({
 	            fail: function(e) {
 	                n++, console.log("fail:" + a + "fail:" + n);
 	            },
-	            complete: function() {
+	            complete: function(ee) {
+					var  ouploaded = ee.data?t.data.companyimg.concat(ee.data):t.data.companyimg;
 	                console.log(a), ++a == e.path1.length ? (t.setData({
-	                    upload_img: e.path1
+	                    upload_img: ouploaded,
+						companyimg:ouploaded
 	                }), wx.hideToast(), console.log("执行完毕"), console.log("成功：" + o + " 失败：" + n)) : (console.log(a), 
 	                e.j = a, e.success = o, e.fail = n, t.already(e));
 	            }
@@ -372,8 +385,8 @@ Page({
 				zhuying: e.detail.value.zhuying,
 				company: e.detail.value.company,
 				introduce: e.detail.value.introduce,
-				companyimg:that.data.imgArray,
-				chanpinimg: that.data.uploaded,
+				companyimg:that.data.upload_img,
+				chanpinimg: that.data.images,
 			},
 			success: function(e) {
 				console.log(e), that.setData(e.info);
