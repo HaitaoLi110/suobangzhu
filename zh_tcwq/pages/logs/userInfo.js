@@ -372,8 +372,8 @@ Page({
 				zhuying: e.detail.value.zhuying,
 				company: e.detail.value.company,
 				introduce: e.detail.value.introduce,
-				companyimg:that.data.companyimg,
-				chanpinimg: that.data.chanpinimg,
+				companyimg:that.data.imgArray,
+				chanpinimg: that.data.uploaded,
 			},
 			success: function(e) {
 				console.log(e), that.setData(e.info);

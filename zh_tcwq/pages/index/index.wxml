@@ -305,17 +305,18 @@
 <!-- 分享 -->
 <view class="masks" wx:if="{{shares==true}}"></view>
 <view class="bussniess udlr sharesCont" wx:if="{{shares==true}}">
-        <view >请选择</view>
-        <view class="context">
-			联系客服或者分享查看
-        </view>
-        <view>
-            <view>
-							<button openType="contact" sessionFrom="{{userinfo.name}}" class="shares">	联系客服</button>
-						</view>
-            <view bindtap="sharebtn" >
-				<button  openType="share" class="shares">分享查看</button>
-				</view>
-        </view>
-    </view>
+	<view >请选择</view>
+	<view class="context">
+		联系客服或者分享查看
+	</view>
+	<view>
+		<view>
+			<button openType="contact" sessionFrom="{{userinfo.name}}" class="shares">	联系客服</button>
+		</view>
+		<view bindtap="sharebtn" >
+			<button  openType="share" class="shares">分享查看</button>
+		</view>
+	</view>
+	<view class="bussniess_closed" bindtap="sharesFalse">X</view>
+</view>
 <!-- 分享结束 -->

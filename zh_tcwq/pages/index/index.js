@@ -96,6 +96,11 @@ Page({
             swiperCurrent1: t.detail.current
         });
     },
+	sharesFalse:function(){
+		this.setData({
+			shares:false
+		})
+	},
     jumps: function(t) {
         var e = this, a = (t.currentTarget.dataset.name, t.currentTarget.dataset.appid), n = t.currentTarget.dataset.src, i = t.currentTarget.dataset.id, s = t.currentTarget.dataset.sjtype;
         console.log(i, s);

@@ -3,7 +3,7 @@
         <view class="title">{{info.title}}</view>
         <view class="header_info">
             <text>{{info.yd_num}}阅读量</text>
-            <text>{{info.pl.length}}评论</text>
+            <!-- <text>{{info.pl.length}}评论</text> -->
             <text style="color:{{system.color}}">{{info.type_name}}</text>
         </view>
     </view>
@@ -41,16 +41,7 @@
             </view>
             <view class="nav_title center">首页</view>
         </view>
-       <!-- <view bindtap="Collection">
-            <view class="icon rel">
-                <image class="ab udlr" mode="widthFix" src="../image/zan1.png" wx:if="{{info.dz!='1'}}"></image>
-                <image class="ab udlr" mode="widthFix" src="../image/yzan1.png" wx:else></image>
-            </view>
-           <view class="nav_title center">
-                <text wx:if="{{info.dz!='1'}}">点赞</text>
-                <text style="color:#ED414A" wx:else>已点赞</text>
-            </view>
-        </view> -->
+      
         <view bindtap="dizhi">
             <view class="icon rel">
                 <image class="ab udlr" mode="widthFix" src="../image/nav1.png"></image>
@@ -58,9 +49,7 @@
             <view class="nav_title center">分享</view>
             <button class="btn" openType="share"></button>
         </view>
-        <view bindtap="speak" class="nav_phone" style="background:{{system.color}}">
-            <view>我要打电话</view>
-        </view>
+       
     </view>
    </view>
 

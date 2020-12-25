@@ -63,16 +63,6 @@ page {
     color: #666;
 }
 
-
-
-
-
-
-
-.body .body_info {
-   
-}
-
 .body .body_info>view view:nth-child(2) {
     width: 100%;
     height: 50rpx;
@@ -368,31 +358,19 @@ page {
     position: fixed;
     bottom: 0;
     z-index: 100;
+	display: flex;
 }
 
 .footers>view {
     height: 100%;
     box-sizing: border-box;
-    float: left;
-}
-
-.footers>view:nth-child(1) {
-    width: 33%;
-}
-
-.footers>view:nth-child(2) {
-    width: 33%;
+	flex: 1;
+	text-align: center;
 }
 
 
 
-.footers>view:nth-child(3) {
-    width: 34%;
-    text-align: center;
-    background: #ED414A;
-    color: #fff;
-    overflow: hidden;
-}
+
 
 .nav_phone>view {
     height: 100%;

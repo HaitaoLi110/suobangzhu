@@ -1,13 +1,21 @@
-.contflx{
-	display: flex;
-	flex-wrap: wrap;
-	justify-content:space-between;
+page{
 	background-color: #fff;
+}
+.contflx{
+	/* display: flex;
+	flex-wrap: wrap;
+	justify-content:space-between; */
+	background-color: #fff;
+	column-count:2;
+	
+	column-gap:10rpx;
+	
+	column-width:46%;
 	}
 
 .li{
 	padding: 15rpx ;
-	width:46%;
+	   break-inside: avoid;
 	min-height: 60rpx;
 }	
 .licont{
@@ -24,4 +32,9 @@
 .p_text{
 	display: block;
 	min-height: 10rpx;
+	/* display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp:2;
+	overflow: hidden; */
+	font-size: 28rpx;
 }

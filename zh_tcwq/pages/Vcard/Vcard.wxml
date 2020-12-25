@@ -4,7 +4,6 @@
 		<view class="licont">
 			<image src="{{item.img}}" class="avarg"></image>
 		<view class="h3_title">{{item.name}}</view>
-		<!-- <view class="p_text">{{item.u_tel}}</view> -->
 		<view class="p_text">{{item.company}}</view>
 		<view class="p_text">{{item.introduce}}</view>
 		</view>
