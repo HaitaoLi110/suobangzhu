@@ -34,19 +34,19 @@
     <view class="list_content">
         <view class="list_fukuan flex-bet">
             <view bindtap="wallet" class="flex3 list_collet">
-                <view class="mytext" style="color:{{System.color}}">{{UserInfo.money}}</view>
+                <!-- <view class="mytext" style="color:{{System.color}}">{{UserInfo.money}}</view> -->
                 <view>钱包</view>
             </view>
             <navigator bindtap="payment_one" class="flex3 list_collet" url="../integral/myintegral" >
-                <view class="mytext" style="color:{{System.color}}">{{UserInfo.total_score}}</view>
+                <!-- <view class="mytext" style="color:{{System.color}}">{{UserInfo.total_score}}</view> -->
                 <view>我的消息</view>
             </navigator>
             <view bindtap="collection" class="flex3 list_collet">
-                <view class="mytext" style="color:{{System.color}}">{{MyCollection.length}}</view>
+                <!-- <view class="mytext" style="color:{{System.color}}">{{MyCollection.length}}</view> -->
                 <view>收藏</view>
             </view>
 			<view bindtap="open_hy" class="flex3 list_collet" wx:if="{{!groupid}}">
-			    <view  class="mytext" style="color:{{System.color}}">点</view>
+			    <!-- <view  class="mytext" style="color:{{System.color}}">点</view> -->
 			    <view>开通会员</view>
 			</view>
         </view>
@@ -70,7 +70,7 @@
    
         <view bindtap="myInfo" class="banner_list">
             <image class="list_allimg" src="../image/ding.png"></image>
-            <view class="list_alltext">我的名片</view>
+            <view class="list_alltext">厂家入驻</view>
         </view>
     </view>
 </view>

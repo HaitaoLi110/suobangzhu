@@ -1750,17 +1750,18 @@ body {
 	background: rgba(0,0,0,.65);
 }
 .bussniess_closed{
-	position: absolute;
-	border: #333 1px solid;
-	border-radius: 50%;
-	text-align: center;
-	display: block;
-	width: 45rpx;
-	height: 45rpx;
-	line-height: 45rpx;
-	font-size: 36rpx;
-	top: 8rpx;
-	right: 8rpx;
-	color: #333;
+    position: absolute;
+    border: #ff0000 1px solid;
+    border-radius: 40%;
+    text-align: center;
+    display: block;
+    width: 50rpx;
+    height: 35rpx;
+    background-color: #ff0000;
+    line-height: 45rpx;
+    font-size: 32rpx;
+    top: 8rpx;
+    right: 8rpx;
+    color: #fff;
 	
 }

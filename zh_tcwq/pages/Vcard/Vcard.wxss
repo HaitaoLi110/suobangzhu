@@ -7,21 +7,24 @@ page{
 	justify-content:space-between; */
 	background-color: #fff;
 	column-count:2;
-	
 	column-gap:10rpx;
-	
 	column-width:46%;
 	}
 
 .li{
 	padding: 15rpx ;
-	   break-inside: avoid;
+	break-inside: avoid;
 	min-height: 60rpx;
+
 }	
 .licont{
 	box-shadow: 0px 0px 3px #aaa;
 	padding: 10rpx;
 	clear: both;
+	height: 180rpx;
+}
+.h3_title{
+	margin-bottom: 10rpx;
 }
 .avarg{
 	float: right;
@@ -32,9 +35,11 @@ page{
 .p_text{
 	display: block;
 	min-height: 10rpx;
-	/* display: -webkit-box;
+	display: -webkit-box;
 	-webkit-box-orient: vertical;
-	-webkit-line-clamp:2;
-	overflow: hidden; */
+	-webkit-line-clamp:1;
+	overflow: hidden;
 	font-size: 28rpx;
+	height: 50rpx;
+	color: #666;
 }

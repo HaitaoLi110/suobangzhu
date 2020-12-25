@@ -1,6 +1,6 @@
 <view class="cpncent">
 	
-	<view class="item_info"> <text class="t_label">会员用户名：</text>{{user_name}}</view>
+	<view class="item_info"> <text class="t_label">开通账号：</text>{{user_name}}</view>
 	<view class="item_info"><text  class="t_label">开通时长：</text>
 		<view class="swiper-tab">
 			<block wx:for="{{list}}" wx:key="item">
@@ -12,7 +12,7 @@
 			</block>
 		</view>
 	</view>
-	<view class="item_info"><text  class="t_label">价格：</text>
+	<view class="item_info"><text  class="t_label">金额合计：</text>
 		
 	</view>	
 	
