@@ -65,3 +65,14 @@
 	left: 25rpx;
 	color: #333;
 }
+.item_info_js{
+	background:#fff;
+	padding:25rpx 15rpx;
+}
+.item_info_view{
+	    border: #eaeaea solid 1px;
+    padding: 15rpx 25rpx;
+    margin-left: 86rpx;
+    margin-top: 15rpx;
+    color: #666;
+}

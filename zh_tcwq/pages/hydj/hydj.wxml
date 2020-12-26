@@ -12,11 +12,11 @@
 			</block>
 		</view>
 	</view>
-	<view class="item_info"><text  class="t_label">金额合计：</text>
-		
+	<view class="item_info"><text  class="t_label">金额合计：</text></view>
+	<view class="item_info_js">
+		<text  class="t_label">会员介绍：</text>
+		<view class="item_info_view">购买成功后可以查看该平台报价信息里所有系统报价，供求信息等内容，购买之前请仔细阅读《免责声明》中的一切内容，默认用户同意，如有疑议，请停止购买。</view>
 	</view>	
-	
-		
-	
 	<button   class="btn_go" bindtap="groupid">去支付</button>
 </view>
+
