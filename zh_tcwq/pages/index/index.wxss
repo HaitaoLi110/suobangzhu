@@ -380,6 +380,7 @@ body {
 .classify  .view-item{
     width: 33%;
     margin-top: 15rpx;
+    padding-bottom: 20rpx;
 }
 
 .classify .view-item .classify_logo {
