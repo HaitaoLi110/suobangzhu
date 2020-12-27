@@ -710,7 +710,7 @@ Page({
         if (console.log(imgArray), console.log(uploaded), 0 == imgArray.length) var C = ""; else C = imgArray.join(",");
         if (0 == uploaded.length) var M = ""; else M = uploaded.join(",");
         var A = "";
-        if ("" != w && null != w || (w = ""), console.log(a.data, u, r), "" == d ? A = "请输入厂家名称" : "" == p ? A = "请输入关键字" : "" == g ? A = "请输入详细地址" : "1" == a.data.xtxx.is_dnss && null == s ? A = "请勾选店内设施" : "1" == a.data.xtxx.is_dnss && 0 == s.length ? A = "请勾选店内设施" : "1" == a.data.xtxx.is_yysj && "00:00" == m ? A = "请输入营业开始时间" : "1" == a.data.xtxx.is_yysj && "00:00" == f ? A = "请输入营业结束时间" : "" == h ? A = "请输入联系电话" : "" == x ? A = "请输入公告说明" : "1" == a.data.xtxx.is_img && null == u ? A = "请上传营业执照照片" : "1" == a.data.xtxx.is_img && null == r ? A = "请上传法人身份证正面照片" : 540 <= w.length ? A = "内容超出" : 0 == a.data.sms ? null == a.data.num && (A = "请进行手机号验证") : 1 == a.data.sms && null == a.data.yz_code && (A = "请进行手机号验证"), 
+        if ("" != w && null != w || (w = ""), console.log(a.data, u, r), "" == d ? A = "请输入厂家名称"  : "" == h ? A = "请输入联系电话" : 0 == a.data.sms ? null == a.data.num && (A = "请进行手机号验证") : 1 == a.data.sms && null == a.data.yz_code && (A = "请进行手机号验证"), 
         "" != A) wx.showModal({
             title: "提示",
             content: A,

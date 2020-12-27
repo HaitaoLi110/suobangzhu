@@ -34,12 +34,18 @@
 		</view>
 	</view>
 
-<view class="userpad" wx:for="{{xtxx.companyimg}}" wx:key="item" >
+<view class="userpad"  wx:if="{{xtxx.companyimg}}">
+	<view>公司图片：</view>
+	<block wx:for="{{xtxx.companyimg}}" wx:key="item">
 	<image src="{{url}}{{item}}" wx:if="{{item.length>0}}" mode="aspectFill"></image>
+	</block>
 </view>
 
-<view class="userpad" wx:for="{{xtxx.chanpinimg}}" wx:key="item" >
-	<image src="{{url}}{{item}}" wx:if="{{item.length>0}}" mode="aspectFill"></image>
+<view class="userpad"   wx:if="{{xtxx.chanpinimg}}">
+	<view>产品图片：</view>
+	<block wx:for="{{xtxx.chanpinimg}}" wx:key="item">
+		<image src="{{url}}{{item}}" wx:if="{{item.length>0}}" mode="aspectFill"></image>
+	</block>
 </view>
 <!-- <block wx:if="{{xtxx.model=='1'}}">
     <view class="main" style="background:{{xtxx.color}}" wx:if="{{kpggimg.length==0}}">

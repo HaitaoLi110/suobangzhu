@@ -32,19 +32,30 @@ Page({
 				let zhuying = o.zhuying;
 				let companyimg = o.companyimg;
 				let chanpinimg = o.chanpinimg;
-				if(zhuying.length>0){
+				if(zhuying && zhuying.length>0){
 					zhuying = zhuying.replace(/&quot;/g,"");
 					zhuying = zhuying.replace(/\[|]/g,'');
 					o.zhuying = zhuying;
 				}
-				if(companyimg.indexOf(',') != -1){
-					companyimg = companyimg.split(',');
-					o.companyimg = companyimg;
+				if(companyimg){
+					if(companyimg.indexOf(',') != -1){
+						companyimg = companyimg.split(',');
+						o.companyimg = companyimg;
+					}else{
+						companyimg = companyimg.split(' ');
+						o.companyimg = companyimg;
+					}
 				}
-				if(chanpinimg.indexOf(',') !=-1){
-					chanpinimg = chanpinimg.split(',');
-					o.chanpinimg = chanpinimg;
+				if(chanpinimg){
+					if(chanpinimg.indexOf(',') !=-1){
+						chanpinimg = chanpinimg.split(',');
+						o.chanpinimg = chanpinimg;
+					}else{
+						chanpinimg = chanpinimg.split(',');
+						o.chanpinimg = chanpinimg;
+					}
 				}
+				
                 n.setData({
                     xtxx: o,
 					url:url
