@@ -69,3 +69,7 @@
 .userpad{
 	padding:20rpx 15rpx;
 }
+.userpad image{
+
+	width:100%
+}
