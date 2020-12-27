@@ -5,6 +5,7 @@ Page({
         index: 0,
         types: 1,
 		djss:0,
+		active_index:0,
 		shares:false,
         phone:15330012145,
         isShowMy:false,
@@ -211,9 +212,10 @@ Page({
             },
             success: function(e) {
                 console.log(e);
-                var t = e.data;
+                var t = e.data.data;
                 for (var a in t) {
                     t[a].time = t[a].time.slice(0, 16), null == t[a].img ? t[a].type = 1 : t[a].type = 2;
+                    // null == t[a].img ? t[a].type = 1 : t[a].type = 2;
                     var o = u, n = t[a].time.replace(/-/g, "/"), s = /(\d{4})-(\d{1,2})-(\d{1,2})( \d{1,2}:\d{1,2})/g, c = Math.abs(Date.parse(o.replace(s, "$2-$3-$1$4")) - Date.parse(n.replace(s, "$2-$3-$1$4"))) / 1e3, i = Math.floor(c / 3600), r = Math.floor(c % 3600 / 60);
                     t[a].m = i, t[a].h = r, console.log(i + " 小时 " + r + " 分钟"), t[a].imgs = t[a].imgs.split(",").slice(0, 3);
                 }

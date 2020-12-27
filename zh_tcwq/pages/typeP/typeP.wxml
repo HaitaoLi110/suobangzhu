@@ -2,7 +2,7 @@
 	
 <view class="container" style="margin-bottom:115rpx">
     <view class="header" wx:if="{{!isShowMy}}">
-        <view bindtap="click" class="tab_nav {{active_index==index ?'click3':'click4'}} {{index==0 ?'click3':'click4'}}" data-index="{{index}}" style="color:{{active_index==index?system.color:''}};border-color:{{active_index==index?system.color:''}}" wx:for="{{zx}}" wx:key="*this">{{item.type_name}}</view>
+        <view bindtap="click"  class="tab_nav {{active_index==index ?'click3':'click4'}}" data-index="{{index}}"  wx:for="{{zx}}" wx:key="*this">{{item.type_name}}</view>
     </view>
     <view class="figure" wx:if="{{slide.length!=0}}" >
         <swiper autoplay="auto" circular="true" duration="500" indicatorActiveColor="#ccc" indicatorColor="white" indicatorDots="true" interval="5000">
