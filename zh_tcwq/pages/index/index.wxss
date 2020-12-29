@@ -375,12 +375,14 @@ body {
 	display: flex;
 	 flex-wrap: wrap;
 	justify-content: center;
+	padding-bottom: 8rpx;
 }
 
 .classify  .view-item{
     width: 33%;
     margin-top: 15rpx;
-    padding-bottom: 20rpx;
+	padding: 20rpx 0;
+
 }
 
 .classify .view-item .classify_logo {
@@ -403,7 +405,7 @@ body {
 }
 
 .ad {
-    margin: 12rpx 0;
+    margin: 25rpx 0;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -470,7 +472,7 @@ body {
 
 .markettitle>view:nth-child(2) {
     font-size: 30rpx;
-    color: #ec6744;
+    color: #008ECE;
 }
 
 .moremarket {
@@ -1752,13 +1754,13 @@ body {
 }
 .bussniess_closed{
     position: absolute;
-    border: #ff0000 1px solid;
+    border: #008ECE 1px solid;
     border-radius: 40%;
     text-align: center;
     display: block;
-    width: 50rpx;
+    width: 45rpx;
     height: 35rpx;
-    background-color: #ff0000;
+    background-color: #008ECE;
     line-height: 45rpx;
     font-size: 32rpx;
     top: 8rpx;

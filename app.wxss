@@ -1722,7 +1722,7 @@ button:active {
 .gobyndsingle_h3{
 	padding-left: 25rpx;
 	margin-top: 20rpx;
-	color: #f93535;
+	color: #008ECE;
 	font-size: 30rpx;
 }
 .gobyndsingle_h3::before{
@@ -1730,7 +1730,7 @@ button:active {
 	width: 3px;
 	display: inline-block;
 	height: 100%;
-	background-color: #f93535;
+	background-color: #008ECE;
 	margin-right: 10rpx;
 }
 .zi {

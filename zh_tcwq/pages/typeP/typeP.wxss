@@ -44,7 +44,7 @@ page {
 }
 
 .click2 {
-    border-bottom: 5rpx solid #ED414A;
+    border-bottom: 5rpx solid #008ECE;
 }
 
 .click4 {
@@ -52,8 +52,8 @@ page {
 }
 
 .click3 {
-    color: #ED414A;
-    border-bottom: 5rpx solid #ED414A;
+    color: #008ECE;
+    border-bottom: 5rpx solid #008ECE;
 }
 
 .header>view scroll-view view {
@@ -331,14 +331,14 @@ page {
 }
 .bussniess_closed{
     position: absolute;
-    border: #ff0000 1px solid;
+    border: #008ECE 1px solid;
     border-radius: 40%;
     text-align: center;
     display: block;
     width: 50rpx;
     height: 35rpx;
-    background-color: #ff0000;
-    line-height: 45rpx;
+    background-color: #008ECE;
+    line-height: 35rpx;
     font-size: 32rpx;
     top: 8rpx;
     right: 8rpx;

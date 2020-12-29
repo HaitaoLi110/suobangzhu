@@ -44,7 +44,7 @@ page {
 }
 
 .click2 {
-    border-bottom: 5rpx solid #ED414A;
+    border-bottom: 5rpx solid #008ECE;
 }
 
 .click4 {
@@ -52,8 +52,8 @@ page {
 }
 
 .click3 {
-    color: #ED414A;
-    border-bottom: 5rpx solid #ED414A;
+    color: #008ECE;
+    border-bottom: 5rpx solid #008ECE;
 }
 
 .header>view scroll-view view {
@@ -202,7 +202,7 @@ page {
     font-size: 26rpx;
     color: #666;
     height: 64rpx;
-    border: 5rpx solid #ff4847;
+    border: 5rpx solid #008ECE;
     width: 483rpx;
     position: absolute;
     top: 26rpx;
@@ -215,7 +215,7 @@ page {
     width: 158rpx;
     height: 73rpx;
     color: white;
-    background-color: #ff4847;
+    background-color: #008ECE;
     position: absolute;
     top: 26rpx;
     left: 555rpx;
@@ -246,7 +246,7 @@ page {
 .ssjg button {
     width: 200rpx;
     margin: 10rpx auto;
-    background: #eb414a;
+    background: #008ECE;
     color: #fff;
     font-size: 30rpx;
 }

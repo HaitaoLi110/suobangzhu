@@ -9,6 +9,7 @@ Page({
 		shares:false,
         phone:15330012145,
         isShowMy:false,
+		active_index:0,
 		zx:[{icon: "",
 			id: "1",
 			sort: "0",
