@@ -179,21 +179,21 @@ App({
                         logo: "/zh_tcwq/pages/image/shouye-foucs.png",
                         logo2: "/zh_tcwq/pages/image/shouye.png",
                         title: "首页",
-                        title_color: "#f44444",
+                        title_color: "#008ECE",
                         title_color2: "#888",
                         url: "/zh_tcwq/pages/index/index"
                     }, {
                         logo: "/zh_tcwq/pages/image/zixun1.png",
                         logo2: "/zh_tcwq/pages/image/zixun.png",
                         title: "供求信息",
-                        title_color: "#f44444",
+                        title_color: "#008ECE",
                         title_color2: "#888",
                         url: "/zh_tcwq/pages/type/type"
                     }, {
                         logo: "/zh_tcwq/pages/image/fabu.png",
                         logo2: "/zh_tcwq/pages/image/fabu.png",
                         title: "推广",
-                        title_color: "#f44444",
+                        title_color: "#008ECE",
                         title_color2: "#888",
                         url: "/zh_tcwq/pages/fabu/fabu/fabu"
                     }, 
@@ -209,7 +209,7 @@ App({
 					    logo: "/zh_tcwq/pages/image/dianpu-foucs.png",
 					    logo2: "/zh_tcwq/pages/image/dianpu.png",
 					    title: "行情信息",
-					    title_color: "#f44444",
+					    title_color: "#008ECE",
 					    title_color2: "#888",
 					    url: "/zh_tcwq/pages/typeP/typeP"
 					},
@@ -217,7 +217,7 @@ App({
                         logo: "/zh_tcwq/pages/image/wode-foucs.png",
                         logo2: "/zh_tcwq/pages/image/wode.png",
                         title: "我的",
-                        title_color: "#f44444",
+                        title_color: "#008ECE",
                         title_color2: "#888",
                         url: "/zh_tcwq/pages/logs/logs"
                     } ], c(l), s.globalData.navbar = l;

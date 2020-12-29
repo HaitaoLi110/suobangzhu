@@ -19,5 +19,9 @@ page{
 	padding: 10rpx 20rpx;
 }
 .btnSub{
-	margin-top: 80rpx;
+	margin: 80rpx 30rpx 0;
+	
+}
+.oper_text{
+	padding: 15rpx;
 }

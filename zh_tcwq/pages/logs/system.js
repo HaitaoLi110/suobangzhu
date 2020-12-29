@@ -16,7 +16,9 @@ Page({
         });
     },
     onReady: function() {},
-    onShow: function() {},
+    onShow: function() {
+		app.setNavigationBarColor(this), app.getUrl(this);
+	},
     onHide: function() {},
     onUnload: function() {
         wx.removeStorageSync("bzinfo");
