@@ -33,7 +33,7 @@
 }
 .t_label{
 	display: inline-block; 
-	width: 240rpx;
+	width: 200rpx;
 	text-align: right;
 	padding-right: 8rpx;
 }
