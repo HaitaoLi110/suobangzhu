@@ -17,9 +17,9 @@
 .swiper-tab-list{  
 	font-size: 30rpx;
     display: inline-block;
-	border: #f93535 solid 1rpx;
+	border: #008ECE solid 1rpx;
 	padding: 0rpx 15rpx;
-    color: #f93535;
+    color: #008ECE;
 	margin: 0 10rpx;
 	height: 60rpx;
 	line-height: 60rpx;
@@ -28,8 +28,8 @@
 }
 .on{ 
 	color: #fff;
-    background: #f93535;
-	border-color: #f93535;
+    background: #008ECE;
+	border-color: #008ECE;
 }
 .t_label{
 	display: inline-block; 
@@ -47,10 +47,10 @@
 
 .btn_go{
 	position: fixed;
-	background:#f93535 ;
+	background:#008ECE ;
 	color: #fff;
 	margin: 160rpx auto 0;
-	border-color: #f93535;
+	border-color: #008ECE;
 	bottom: 20px;
 	left: 50px;
 	right: 50px;
