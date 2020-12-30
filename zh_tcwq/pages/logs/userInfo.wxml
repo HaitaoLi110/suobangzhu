@@ -95,7 +95,7 @@
 		</view>
 	</view>
 	<view class="btn-area">
-	<button style="margin: 30rpx 15rpx" type="primary" formType="submit">完成</button>
+	<button style="margin: 12px 6px;background-color:#008ECE;" type="primary" formType="submit">完成</button>
 </view>
 </form>
 

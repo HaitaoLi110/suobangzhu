@@ -1,15 +1,14 @@
 {
   "pages": [
-  
+   
   "zh_tcwq/pages/index/index",
   "zh_tcwq/pages/Vcard/Vcard",
 	  "zh_tcwq/pages/typeP/typeP", 
 	  
-	 "zh_tcwq/pages/logs/logs",
     "zh_tcwq/pages/logs/userInfo",
 	  
 	  "zh_tcwq/pages/hydj/hydj",
-	   
+    "zh_tcwq/pages/logs/logs",
 	
 	   "zh_tcwq/pages/type/type",
 	 

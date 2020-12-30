@@ -185,7 +185,7 @@
 	border-radius: 8rpx;
 	font-size: 28rpx;
 	color: #fff;
-	background: #ED414A;
+	background: #008ECE;
 	float: left;
 }
 .btn_primay::after{

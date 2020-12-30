@@ -80,7 +80,9 @@ Page({
         });
     },
     onReady: function() {},
-    onShow: function() {},
+    onShow: function() {
+        a.setNavigationBarColor(this)
+    },
     onHide: function() {},
     onUnload: function() {},
     onPullDownRefresh: function() {

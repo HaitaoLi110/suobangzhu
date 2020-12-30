@@ -148,7 +148,9 @@ Page({
         });
     },
     onReady: function() {},
-    onShow: function() {},
+    onShow: function() {
+        app.setNavigationBarColor(this)
+    },
     onHide: function() {},
     onUnload: function() {},
     onPullDownRefresh: function() {},

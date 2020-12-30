@@ -21,6 +21,7 @@ Page({
 			type_name: "其他报价",uniacid: "3"}]
     },
     onLoad: function(e) {
+	   app.setNavigationBarColor(this)
        var r = this;
        app.util.request({
 

@@ -3,7 +3,7 @@
     <view class="thisCityName gobyndsingle" data-city="{{city}}">{{dqwz}}</view>
     <view bindtap="getLocation" class="cxdwcs">
         <image src="../image/hqwz.png"></image>
-        <view class="classname">重新定位</view>
+        <view class="classname" style="color:#008ECE;">重新定位</view>
     </view>
 </view>
 <view class="weui-cells weui-cells_after-title xzdq">
@@ -26,13 +26,13 @@
                     <radio checked="{{item.checked}}" class="weui-check" value="{{item.name}}"></radio>
                     <view class="weui-cell__bd">{{item.name}}</view>
                     <view class="weui-cell__ft weui-cell__ft_in-radio" wx:if="{{item.checked}}">
-                        <icon class="weui-icon-radio" size="16" type="success_no_circle"></icon>
+                        <icon style="color:#008ECE;" class="weui-icon-radio" size="16" type="success_no_circle"></icon>
                     </view>
                 </label>
             </radio-group>
         </view>
         <view class="button-sp-area">
-            <button class="weui-btn" formType="submit" type="primary">确定</button>
+            <button style="background-color:#008ECE;" class="weui-btn" formType="submit" type="primary">确定</button>
         </view>
     </view>
 </form>
