@@ -72,7 +72,7 @@
 .item_info_view{
 	    border: #eaeaea solid 1px;
     padding: 15rpx 25rpx;
-    margin-left: 86rpx;
+    margin-left: 58rpx;
     margin-top: 15rpx;
     color: #666;
 }
